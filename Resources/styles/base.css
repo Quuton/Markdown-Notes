@@ -1,0 +1,146 @@
+@media print {
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* blockquote {
+    padding-block:0.5em;
+} */
+h1 {
+    font-family:'Jetbrains Mono',sans-serif
+}
+h2,h3,h4,h5,li,ul,table,p, .blockquote {
+    font-family:'Tahoma',sans-serif
+}
+h1,
+h2,
+h3,
+h4,
+.version {
+    margin: 0.4em 0;
+    box-shadow: -4px 4px 4px 0 rgba(0, 0, 0, 0.283);
+    overflow: hidden;
+}
+
+table {
+    filter: drop-shadow(-3px 5px 3px rgba(0, 0, 0, 0.3));
+}
+
+
+h1 {
+    padding: 0.8em 0.75em;
+    font-size: 2.4em;
+    text-align: center;
+    background-color: #0288d1;
+    border-radius: 6px;
+    color: white;
+}
+
+h2 {
+    padding: 0.4em 0.75em;
+    font-size: 2em;
+    text-align: center;
+    background-color: #5eb8ff;
+    border-radius: 6px;
+}
+
+h3 {
+    padding: 0.2em 0.4em 0.2em 0.5em;
+    font-size: 1.6em;
+    width: 70%;
+    background-color: #388e3c;
+    border-radius: 6px;
+    color: white;
+
+}
+
+h4 {
+    padding: 0.15em 0.4em 0.15em 0.5em;
+    font-size: 1.3em;
+    width: 55%;
+    background-color: #71bb6f;
+    border-radius: 6px;
+
+}
+
+h5 {
+    padding: 0.2em 0.4em 0.2em 0.5em;
+    border-radius: 2px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-left: 3px solid #78909c;
+    width: 70%;
+}
+
+.version {
+    padding: 0.15em 0 0.15em 0;
+    font-size: 1.3em;
+    width: 55%;
+    background-color: #be0a9a;
+    border-radius: 6px;
+    margin:auto;
+    font-weight:bold;
+    text-align: center;
+    color: white;
+
+}
+
+p {
+    font-size: 0.95em;
+}
+
+table {
+    border: none 0px;
+    border-collapse: collapse;
+}
+
+
+table tr:nth-child(odd) code {
+    color: rgba(201, 175, 119);
+}
+
+table tr:nth-child(even) code {
+    color: rgb(133, 95, 14);
+}
+
+table tr th {
+    background-color: #78909c;
+}
+
+table tr:nth-child(even) {
+    background-color: #a7c0cd;
+    color: black;
+}
+
+
+table tr:nth-child(odd) {
+    background-color: #4b636e;
+    color: white;
+}
+
+table tr:first-child th:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+table tr:first-child th:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+table tr:last-child td:first-child {
+    border-radius: 0 0 0 6px;
+}
+
+table tr:last-child td:last-child {
+    border-radius: 0 0 6px 0;
+}
+
+table tr:hover {
+    background-color: rgba(50, 50, 50, 0.813);
+    color: white;
+}
+
+table tr:hover code {
+    color: white;
+}
