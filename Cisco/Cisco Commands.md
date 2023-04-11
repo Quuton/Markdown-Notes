@@ -14,7 +14,7 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
 
 # Cisco Internetwork Operating System Command list
 
-<div class=version>Version 4</div> 
+Get the latest version of the note [here](https://github.com/Quuton/Markdown-Notes)
 
 - [Cisco Internetwork Operating System Command list](#cisco-internetwork-operating-system-command-list)
   - [Basic IOS operations](#basic-ios-operations)
@@ -555,18 +555,16 @@ Router(config-subif)# encapsulation dot1Q 88 native
 
 ### Setting up HSRP
 #### Choosing the HSRP version
-First you need to choose an interface to configure HSRP for. Then you need to specify the version of HSRP.
+First you need to choose an interface to configure HSRP for. Then you need to specify the version of HSRP. At the time of writing, the latest HSRP version is 2.
 
-> HSRP V1 only supports IPv4
+> HSRP V1 only supports IPv4 addressing
 ```
 R1(config)# Interface GigabitEthernet0/0
-R1(config-if)# Standby Version 1
+R1(config-if)# Standby Version 2
 ```
 #### Configuring the virtual HSRP group
-Then you need to provide a group number and an ip address. 
-```
-R1(config-if)# Standby Version <Group_number> <ip_address>
-```
+Then you need to provide a **group number** followed by an **IP address**.
+
 The interfaces of routers that intend to belong to the same group must have the same configuration.
 ```
 R1(config-if)# Standby Version 1 192.168.1.1

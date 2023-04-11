@@ -9,11 +9,11 @@
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" });
 </script>
-# Cisco Chapter 1->6 Review
+# Cisco SRWE Summary
 
-<div class=version>Version 1</div> 
+Get the latest version of the note [here](https://github.com/Quuton/Markdown-Notes)
 
-- [Cisco Chapter 1-\>6 Review](#cisco-chapter-1-6-review)
+- [Cisco SRWE Summary](#cisco-srwe-summary)
   - [Preamble](#preamble)
   - [Virtual local area networks](#virtual-local-area-networks)
     - [Introduction](#introduction)
