@@ -84,6 +84,11 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
     - [Inter-vLAN routing](#inter-vlan-routing)
       - [Configuring sub-interfaces](#configuring-sub-interfaces)
       - [Enable 802.1Q inter-vLAN routing](#enable-8021q-inter-vlan-routing)
+    - [Setting up HSRP](#setting-up-hsrp)
+      - [Choosing the HSRP version](#choosing-the-hsrp-version)
+      - [Configuring the virtual HSRP group](#configuring-the-virtual-hsrp-group)
+      - [Designating the Active Router](#designating-the-active-router)
+      - [Preemptively reassume original role](#preemptively-reassume-original-role)
 
 
 ## Basic IOS operations
@@ -548,7 +553,39 @@ Router(config-subif)# encapsulation dot1Q 88 native
 > Router(config-if)# no shut
 > ```
 
+### Setting up HSRP
+#### Choosing the HSRP version
+First you need to choose an interface to configure HSRP for. Then you need to specify the version of HSRP.
 
+> HSRP V1 only supports IPv4
+```
+R1(config)# Interface GigabitEthernet0/0
+R1(config-if)# Standby Version 1
+```
+#### Configuring the virtual HSRP group
+Then you need to provide a group number and an ip address. 
+```
+R1(config-if)# Standby Version <Group_number> <ip_address>
+```
+The interfaces of routers that intend to belong to the same group must have the same configuration.
+```
+R1(config-if)# Standby Version 1 192.168.1.1
+```
+
+#### Designating the Active Router
+Now that you have chosen a few routers to serve as redundant backup. We should also choose which router will actively serve for now.
+
+The default priority value is 100. A higher value will determine which router is the active router. If the priorities of the routers in the HSRP group are the same, then the router with the highest configured IP address will become the active router.
+
+```
+R1(config-if)# Standby 1 priority 100
+```
+
+#### Preemptively reassume original role
+You can also configure the router to take back its original active role when it becomes operational once more.
+```
+R1(config-if)# standby 1 preempt
+```
 
 
 

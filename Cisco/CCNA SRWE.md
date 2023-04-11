@@ -60,6 +60,7 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
       - [Caviats](#caviats)
       - [LACP and PAgP Protocol](#lacp-and-pagp-protocol)
         - [Protocol outcomes](#protocol-outcomes)
+  - [First Hop Redundancy Protocol //todo](#first-hop-redundancy-protocol-todo)
 
 ## Preamble
 
@@ -385,6 +386,8 @@ Switches using the PAgP can have 3 modes:
 | Passive  | Passive  |          No           |
 
 > LACP and PAgP behave identically.
+
+## First Hop Redundancy Protocol //todo
 
 
 
