@@ -38,10 +38,18 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
       - [Coefficient of Friction](#coefficient-of-friction)
     - [Tension and pulleys](#tension-and-pulleys)
   - [Gravitational force](#gravitational-force)
-  - [Energy in Movement //TODO](#energy-in-movement-todo)
+  - [Energy and Power](#energy-and-power)
     - [Work Done](#work-done)
-    - [Kinetic Energy](#kinetic-energy)
+    - [Mechanical energy](#mechanical-energy)
+      - [Instantaneous Kinetic Energy](#instantaneous-kinetic-energy)
+      - [Gravitational Potential Energy](#gravitational-potential-energy)
+      - [Conservation of energy](#conservation-of-energy)
     - [Work Done Theorem](#work-done-theorem)
+      - [Work Done from difference in kinetic energy](#work-done-from-difference-in-kinetic-energy)
+      - [Work Done in falling object](#work-done-in-falling-object)
+    - [Rate of energy](#rate-of-energy)
+      - [Power](#power)
+  - [Recommended Units for calculating](#recommended-units-for-calculating)
 
 ## Basic Kinematics
 ### Distance, speed and acceleration
@@ -167,8 +175,8 @@ $$T = \dfrac{2 \pi r}{v}$$
 $$F = \dfrac{mv^2}{r    }$$
 ## Newton's motions
 ### Mass and force
-$$F = ma$$
-> The SI units for calculating $F$ is kilograms for mass, and meters per second squared for acceleration. Force itself is represented as newtons, $N$. 
+$$F = m \times a$$
+
 ### Equilibrium
 A body is set to be in translational equilibrium if all the vectors summed up equals zero.
 
@@ -212,14 +220,48 @@ $$F = G\dfrac{m_1 m_2}{r^2}$$
 
 $r$ is the seperated distance between 2 objects, $G$ is the gravitational constant $6.67 × 10^{−11} N  \dfrac{m^2}{kg^2}$
 
-## Energy in Movement //TODO
+## Energy and Power
 
 ### Work Done
+$$W = F \times D$$
+### Mechanical energy
 
-### Kinetic Energy
+#### Instantaneous Kinetic Energy
+$$KE = \dfrac{1}{2}mv^3$$
 
+#### Gravitational Potential Energy
+$$U = mgh$$
+> Note: $h$ is the vertical height. And another popular symbol for gravitational energy is $GPE$
+
+#### Conservation of energy
+In a scenario where friction and air resistance does not exist. For a free falling an object, the sum of the kinetic energy and gravitational energy stays the same.
+![Alt text](images/conservationofenergy.png)
 ### Work Done Theorem
-  
+#### Work Done from difference in kinetic energy
+$$W = \Delta{K}$$
+
+#### Work Done in falling object
+$$W = \Delta{U} = mg(h_1 - h_0)$$
+
+### Rate of energy
+#### Power
+$$P = \dfrac{W}{t}$$
+
+## Recommended Units for calculating
+The table below shows the recommended metrics when calculating. It is advised to convert values into the form below.
+> Eg: If you are given a distance in centimeters $cm$, convert it to meters $m$. Convert mass in grams $g$ to kilograms $kg$, and so on.
+
+|     Unit     |             Symbol              |              Metric              |
+| :----------: | :-----------------------------: | :------------------------------: |
+|   Distance   | $d, h, \Delta{x}, \Delta{Y}, R$ |            Meter $m$             |
+|   Velocity   |               $v$               |      Meter per second $m/s$      |
+| Acceleration |               $a$               | Meter per second squared $m/s^2$ |
+|     time     |               $t$               |           Seconds $s$            |
+|    Force     |               $F$               |           Newtons $N$            |
+|     Mass     |               $m$               |          Kilograms $kg$          |
+|    Energy    |       $E$, $W$, $KE$, $U$       |            Joules $J$            |
+|    Power     |               $P$               |            Watts $W$             |
+
 <div style="page-break-after: always;"></div>
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
