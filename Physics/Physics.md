@@ -8,6 +8,7 @@
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" });
 </script>
+
 # College Physics 
 - [College Physics](#college-physics)
   - [Basic Kinematics](#basic-kinematics)
@@ -41,18 +42,15 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
   - [Energy and Power](#energy-and-power)
     - [Work Done](#work-done)
     - [Mechanical energy](#mechanical-energy)
-      - [Instantaneous Kinetic Energy](#instantaneous-kinetic-energy)
-      - [Gravitational Potential Energy](#gravitational-potential-energy)
+        - [Instantaneous Kinetic Energy](#instantaneous-kinetic-energy)
+        - [Gravitational Potential Energy](#gravitational-potential-energy)
       - [Conservation of energy](#conservation-of-energy)
     - [Work Done Theorem](#work-done-theorem)
-      - [Work Done from difference in kinetic energy](#work-done-from-difference-in-kinetic-energy)
-      - [Work Done in falling object](#work-done-in-falling-object)
+        - [Work Done from difference in kinetic energy](#work-done-from-difference-in-kinetic-energy)
+        - [Work Done in falling object](#work-done-in-falling-object)
     - [Rate of energy](#rate-of-energy)
       - [Power](#power)
   - [Recommended Units for calculating](#recommended-units-for-calculating)
-  - [Sample Problems](#sample-problems)
-    - [Energy related problems](#energy-related-problems)
-      - [Problem 1: Ball speeding down the runway](#problem-1-ball-speeding-down-the-runway)
 
 ## Basic Kinematics
 ### Distance, speed and acceleration
@@ -83,15 +81,16 @@ $$v_{avg} = \dfrac{\Delta{x}}{\Delta{t}}$$
 **Average Velocity** from 2 velocities:
 $$v_{avg} = \dfrac{v_0 + v}{2}$$
 
-**Velocity function** from given displacement function:
+**Instantaneous velocity** from given displacement function:
 $$v = \dfrac{dx}{dt}$$
 
 **Instantaneous velocity** from given acceleration function:
 $$v = \int_{t_0}^{t}a dt$$
+
 #### Acceleration
-**Acceleration function** from given displacement equation:
+**Instantaneous Acceleration** from given displacement equation:
 $$a = \dfrac{d^2x}{dt^2}$$
-**Acceleration function** from given velocity equation:
+**Instantaneous Acceleration** from given velocity equation:
 $$a = \dfrac{dv}{dt}$$
 **Average acceleration** from velocities:
 $$a_{avg} = \dfrac{dv}{dt}$$
@@ -229,21 +228,27 @@ $r$ is the seperated distance between 2 objects, $G$ is the gravitational consta
 $$W = F \times D$$
 ### Mechanical energy
 
-#### Instantaneous Kinetic Energy
+##### Instantaneous Kinetic Energy
 $$KE = \dfrac{1}{2}mv^3$$
 
-#### Gravitational Potential Energy
+##### Gravitational Potential Energy
 $$U = mgh$$
 > Note: $h$ is the vertical height. And another popular symbol for gravitational energy is $GPE$
 
 #### Conservation of energy
 In a scenario where friction and air resistance does not exist. For a free falling an object, the sum of the kinetic energy and gravitational energy stays the same.
 ![Alt text](images/conservationofenergy.png)
+
+So when an object is launched upwards, it is converting its kinetic energy into Gravitational potential energy.
+
+Likewise when it is falling instead, the Gravitational potential energy is converted into kinetic energy.
+
+And when the object is at rest, there is no kinetic energy, only Gravitational potential energy.
 ### Work Done Theorem
-#### Work Done from difference in kinetic energy
+##### Work Done from difference in kinetic energy
 $$W = \Delta{K}$$
 
-#### Work Done in falling object
+##### Work Done in falling object
 $$W = \Delta{U} = mg(h_1 - h_0)$$
 
 ### Rate of energy
@@ -254,7 +259,7 @@ $$P = \dfrac{W}{t}$$
 The table below shows the recommended metrics when calculating. It is advised to convert values into the form below.
 > Eg: If you are given a distance in centimeters $cm$, convert it to meters $m$. Convert mass in grams $g$ to kilograms $kg$, and so on.
 
-|     Unit     |             Symbol              |              Metric              |
+|     Unit     |             Symbol              |              Unit Metric              |
 | :----------: | :-----------------------------: | :------------------------------: |
 |   Distance   | $d, h, \Delta{x}, \Delta{Y}, R$ |            Meter $m$             |
 |   Velocity   |               $v$               |      Meter per second $m/s$      |
@@ -265,23 +270,7 @@ The table below shows the recommended metrics when calculating. It is advised to
 |    Energy    |       $E$, $W$, $KE$, $U$       |            Joules $J$            |
 |    Power     |               $P$               |            Watts $W$             |
 
-## Sample Problems
-In this section, problems for each topics are provided to help train the application of the formulas.
 
-### Energy related problems
-#### Problem 1: Ball speeding down the runway
-A ball starts from a runway at a height of `3.00 m`. It gains speed before being launched directly upwards reaching a height of `4.00 m`. Ignoring friction and air resistance, find the initial speed of the ball $\overrightarrow{v_0}$.
-![Alt text](images/problems/problem7-1.png)
-> **Solution** //TODO
-> 
-> One thing you can note first is that the height of the start of the ramp is different from the height the ball actually reaches.
->
-> This means surely **extra energy is applied** at the start of the ramp.
->
-> By the law of conservation of energy, the energy of the ball at the start must be equal to when it is at the peak. $W_0$ is the energy of the ball at the start, $W_1$ is the energy of the ball at the peak in the air.
->
-> $$(0) \space W_0 = K_0 + U_0$$
-> $$(1) \space W_1 = U_1$$
 <div style="page-break-after: always;"></div>
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)

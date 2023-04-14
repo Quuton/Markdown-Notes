@@ -11,7 +11,7 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
 </script>
 
 # Title
-<div class=version>Version 1</div>
+<div class="misc">Misc Header</div>
 
 - [Title](#title)
   - [Section](#section)
