@@ -9,7 +9,7 @@
 MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" });
 </script>
 
-# Sample Problems
+# Physics Sample Problems
 In this section, problems for each topics are provided to help train the application of the formulas.
 
 ### Energy related problems
@@ -41,6 +41,7 @@ A ball starts from a runway at a height of `3.00 m`. It gains speed before being
 >
 > Simply solve for $v$ using algebra and we have our answer.
 >
+> $$v = 4.427$$
 > <div style="page-break-after: always;"></div>
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
