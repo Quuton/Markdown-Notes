@@ -225,6 +225,7 @@ $r$ is the seperated distance between 2 objects, $G$ is the gravitational consta
 ## Energy and Power
 
 ### Work Done
+To calculate for the amount of work done, you can find the resultant force at which the objects is moving at and multiply by the distance it moved.
 $$W = F \times D$$
 ### Mechanical energy
 

@@ -24,17 +24,17 @@ A ball starts from a runway at a height of `3.00 m`. It gains speed before being
 >
 > By the law of conservation of energy, the energy of the ball at the start must be equal to when it is at the peak. $W_0$ is the energy of the ball at the start, $W_1$ is the energy of the ball at the peak in the air.
 >
-> $$(0) \space W_0 = K_0 + U_0$$
-> $$(1) \space W_1 = U_1$$
+> $$ \space W_0 = K_0 + U_0$$
+> $$ \space W_1 = U_1$$
 > *The reason $W_1$ only has $U_1$ in the equation is because when a particle has reached its peak in the air, all the kinetic energy has been converted to gravitational potential energy.*
 >
 > With these 2 equations, all we need to do is substitute any $K$ and $U$ where possible.
-> $$(0) \space W_0 = \dfrac{1}{2}mv^2 + mgh$$
-> $$(1) \space W_1 = mgh$$
+> $$ \space W_0 = \dfrac{1}{2}mv^2 + mgh$$
+> $$ \space W_1 = mgh$$
 >
 > Using the given variables
-> $$(0) \space W_0 = \dfrac{1}{2}mv^2 + m(9.8)(3)$$
-> $$(1) \space W_1 = m(9.8)(4)$$
+> $$ \space W_0 = \dfrac{1}{2}mv^2 + m(9.8)(3)$$
+> $$ \space W_1 = m(9.8)(4)$$
 >
 > Because we can ignore **air resistance** and **friction**. Then due to the conservation of energy, $W_0 = W_1$.
 > $$m(9.8)(4) = \dfrac{1}{2}mv^2 + m(9.8)(3)$$
