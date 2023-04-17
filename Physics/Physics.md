@@ -226,7 +226,10 @@ $r$ is the seperated distance between 2 objects, $G$ is the gravitational consta
 
 ### Work Done
 To calculate for the amount of work done, you can find the resultant force at which the objects is moving at and multiply by the distance it moved.
-$$W = F \times D$$
+
+$\overrightarrow{F}$ is the force acting parallel to the direction of the displacement.
+
+$$W = \overrightarrow{F} \times D$$
 ### Mechanical energy
 
 ##### Instantaneous Kinetic Energy
