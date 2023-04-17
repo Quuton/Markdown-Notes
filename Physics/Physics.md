@@ -230,6 +230,12 @@ To calculate for the amount of work done, you can find the resultant force at wh
 $\overrightarrow{F}$ is the force acting parallel to the direction of the displacement.
 
 $$W = \overrightarrow{F} \times D$$
+
+Alternatively, instantaneous work done can be found by finding the difference in distance.
+
+$$W = \int^i_y{F_x \space dx}$$
+
+
 ### Mechanical energy
 
 ##### Instantaneous Kinetic Energy
