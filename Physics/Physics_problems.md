@@ -48,6 +48,7 @@ A ball starts from a runway at a height of `3.00 m`. It gains speed before being
 
 ### Problem 2 Staircase Marathon
 A person weighing `50.0 kg` decides to climb up the stairs of a temple `443.0 m` tall. In `15 minutes`, what must be the average power output of the person to be able to complete the staircase in time? Express your answer in watts and horsepower.
+![Alt text](images/problems/7-2/1.jpg)
 
 > <div class=misc>Solution</div>
 > This is simple, first find the potential energy the person would have gained at the top.
