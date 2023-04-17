@@ -9,10 +9,9 @@
 MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" });
 </script>
 
-# Physics Sample Problems
-In this section, problems for each topics are provided to help train the application of the formulas.
+# Physics Training Problems
 
-## Energy related problems
+## Mechanical energy problems
 ### Problem 1: Ball speeding down the runway
 A ball starts from a runway at a height of `3.00 m`. It gains speed before being launched directly upwards reaching a height of `4.00 m`. Ignoring friction and air resistance, find the initial speed of the ball $\overrightarrow{v_0}$.
 
