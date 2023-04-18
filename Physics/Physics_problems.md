@@ -13,7 +13,7 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
 
 ## Mechanical energy problems
 
-### Problem 1 Staircase Marathon
+### Problem 1: Temple staircase
 A person weighing `50.0 kg` decides to climb up the stairs of a temple `443.0 m` tall. In `15 minutes`, what must be the average power output of the person to be able to complete the staircase in time? Express your answer in watts and horsepower.
 ![Alt text](images/problems/7-1/1.jpg)
 
@@ -91,6 +91,41 @@ A ball starts from a runway at a height of `3.00 m`. It gains speed before being
 > $$v = 4.427$$
 > <div style="page-break-after: always;"></div>
 
-### Problem 4:
+### Problem 4: Bluebird Skiers
+The ski slopes at Bluebird Mountain make use of tow ropes to transport snowboarders and skiers to the summit of the hill. One of the tow ropes is powered by a `22.0 kW` motor which pulls skiers along an icy incline of `14.0°` at a constant speed. Suppose that `18` skiers with an average mass of `48.0 kg` hold onto the rope and suppose that the motor operates at full power.
+
+- a. Determine the cumulative weight of all these skiers.
+- b. Determine the force required to pull this amount of weight up a 14° incline at a constant speed.
+- c. Determine the speed at which the skiers will ascend the hill.
+> <div class=misc>Solution</div>
+>
+> To solve for **a.**, simply get the cumulative mass and multiply by gravity
+>
+> $$W_t = (48 \times 18) \times 9.8 = 8467.2 N$$
+>Then to find out the force required to pull them, find the force exerted by gravity on the parallel axis. You need to use the angle of the incline here.
+> $$\tan(14°) = \dfrac{F_x}{8467.2}$$
+>
+> $$0.249 \times 8467.2 = F_x = 2111.11 N$$
+>
+> And to find the speed at which the skiers will ascend. Find the distance first at which the skiers will be carried in 1 second.
+>
+> $$22000 = 2111.11 \times d$$
+>
+> $$d = 10.42 \space m$$
+>
+> That distance might as well be the speed the skiers will ascend.
+>
+> $$v = 10.42 \space m/s$$
+>
+### Problem 5: Pulley doing work
+ A cord is attached to a cart that can slide along a frictionless ground. A cord sits at `1.20 m` above the ground, and the cart slides from the `3.00 m` point $x1$ to the `1.00 m` point $x2$. During the move, the tension in the cord is a constant `25.0 N`. What is the change in the kinetic energy of the cart during the move?
+![Alt text](images/problems/7-5/1.jpg)
+
+> <div class=misc>Solution</div>
+>
+> To find the work done, we need to know the
+>
+> $$$$
+
 ![Alt text](../Resources/images/Draco%20Centaur.png)
 <p style="text-align:center;font-weight:bold;font-size:20px;">You have reached the end</p>
