@@ -61,12 +61,19 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [LACP and PAgP Protocol](#lacp-and-pagp-protocol)
         - [Protocol outcomes](#protocol-outcomes)
   - [First Hop Redundancy Protocol //todo](#first-hop-redundancy-protocol-todo)
-  - [LAN Security](#lan-security)
+  - [Internet Security](#internet-security)
     - [Common Types of Cyberattacks](#common-types-of-cyberattacks)
       - [Distributed Denial of Service](#distributed-denial-of-service)
       - [Data Breaches](#data-breaches)
       - [Malware](#malware)
     - [Endpoint security](#endpoint-security)
+    - [LAN Attacks](#lan-attacks)
+      - [MAC Table flooding](#mac-table-flooding)
+      - [DHCP Attacks](#dhcp-attacks)
+        - [DHCP Starvation](#dhcp-starvation)
+        - [DHCP Spoofing](#dhcp-spoofing)
+    - [STP Attack](#stp-attack)
+    - [DTP Spoofing](#dtp-spoofing)
 
 ## Preamble
 
@@ -395,7 +402,7 @@ Switches using the PAgP can have 3 modes:
 
 ## First Hop Redundancy Protocol //todo
 
-## LAN Security
+## Internet Security
 ### Common Types of Cyberattacks
 #### Distributed Denial of Service
 Distributed Denial of Service (DDoS) or Denial of Service (DoS) are types of attacks with the goal of effectively shutting down a computer by spamming it with too many requests that it cannot serve other legitimate users.
@@ -422,7 +429,30 @@ Common malware types include:
   - Worm: Malware that automatically replicates itself and sends to other computers it can reach from your network, it can do so by exploiting vulnerabilities in apps or operating systems.
   - Botnet: A software that gains control over your computer, often used by hackers to facilitate a DDoS attack.
   - Malicious Macros: Sneak malware that hides inside documents as malicious macros. (You can get hacked by opening a shady word document!)
+
+
 ### Endpoint security
+
+### LAN Attacks
+#### MAC Table flooding
+
+#### DHCP Attacks
+##### DHCP Starvation
+A type of DoS that shutsdown a network for new clients by taking all the leasable IP addresses. Usually a rogue computer sends many **DHCP DISCOVER** messages with fake Mac Addresses. The DHCP server will serve those discover requests and eventually run out of ip addresses to lease out to legit users.
+
+##### DHCP Spoofing
+A computer connects to the network acting as a rogue DHCP server. The computer can provide false DHCP information favourable to the hacker. These include:
+- A false default gateway, you can effectively do a man-in-the-middle-attack by forcing devices to go through your router to intercept or steal the data.
+- False DNS server, you can also point other devices to your own fake DNS server.
+- Invalid IP address, you can also effectively perform a DoS by giving an invalid IP address to a pc, it will not be able to participate in the network.
+
+### STP Attack
+
+### DTP Spoofing
+
+
+
+
 
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
