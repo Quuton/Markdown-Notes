@@ -61,6 +61,12 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [LACP and PAgP Protocol](#lacp-and-pagp-protocol)
         - [Protocol outcomes](#protocol-outcomes)
   - [First Hop Redundancy Protocol //todo](#first-hop-redundancy-protocol-todo)
+  - [LAN Security](#lan-security)
+    - [Common Types of Cyberattacks](#common-types-of-cyberattacks)
+      - [Distributed Denial of Service](#distributed-denial-of-service)
+      - [Data Breaches](#data-breaches)
+      - [Malware](#malware)
+    - [Endpoint security](#endpoint-security)
 
 ## Preamble
 
@@ -389,6 +395,34 @@ Switches using the PAgP can have 3 modes:
 
 ## First Hop Redundancy Protocol //todo
 
+## LAN Security
+### Common Types of Cyberattacks
+#### Distributed Denial of Service
+Distributed Denial of Service (DDoS) or Denial of Service (DoS) are types of attacks with the goal of effectively shutting down a computer by spamming it with too many requests that it cannot serve other legitimate users.
+
+An example scenario is a game server, when the game server undergoes a DoS cyberattack, it takes much longer to process every player, and on your side as the player, you experience unplayable latency.
+
+
+
+#### Data Breaches
+These attacks involve compromising servers or computers with the goal of stealing data.
+
+
+#### Malware
+Malware is a term used to refer to any malicious software that destroys computers, controls computers, steals data, annoy people or any other malicious activity.
+
+Common malware types include:
+  - Keyloggers: Software that tracks the keys you pressed without your knowledge
+  - Virus: Code that works by making other executables infected Eg: Malicious .dll
+  - Trojan Horse: A seemingly harmless app that tries to introduce a backdoor for other malware payloads.
+  - Cryptoware: Software that encrypts all your data
+  - Ransomware: Cryptoware that offers to decrypt your data back to normal for ransom money or some other ransom.
+  - Adware: Software that just stays on your computer to show advertisements.
+  - Rootkits: Malware that sits together with the other core operating system files, making it tricky to remove.
+  - Worm: Malware that automatically replicates itself and sends to other computers it can reach from your network, it can do so by exploiting vulnerabilities in apps or operating systems.
+  - Botnet: A software that gains control over your computer, often used by hackers to facilitate a DDoS attack.
+  - Malicious Macros: Sneak malware that hides inside documents as malicious macros. (You can get hacked by opening a shady word document!)
+### Endpoint security
 
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
