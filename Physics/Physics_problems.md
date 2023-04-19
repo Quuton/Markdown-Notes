@@ -118,14 +118,26 @@ The ski slopes at Bluebird Mountain make use of tow ropes to transport snowboard
 > $$v = 10.42 \space m/s$$
 >
 ### Problem 5: Pulley doing work
- A cord is attached to a cart that can slide along a frictionless ground. A cord sits at `1.20 m` above the ground, and the cart slides from the `3.00 m` point $x1$ to the `1.00 m` point $x2$. During the move, the tension in the cord is a constant `25.0 N`. What is the change in the kinetic energy of the cart during the move?
+ A cord is attached to a cart that can slide along a frictionless ground. A cord sits at `1.20 m` above the ground, and the cart slides from the `3.00 m` point $x_1$ to the `1.00 m` point $x_2$. During the move, the tension in the cord is a constant `25.0 N`. What is the change in the kinetic energy of the cart during the move?
 ![Alt text](images/problems/7-5/1.jpg)
 
 > <div class=misc>Solution</div>
 >
-> To find the work done, we need to know the
+> To find the work done, we need to calculate the parallel force component.
 >
-> $$$$
-
+> Using pythagoras, we can determine that the length of the rope attached to the pulley from $x_1$.
+>
+> $$ \overrightarrow{T} = \sqrt{1.2^2 + 3^2} = 3.231$$
+>
+> Then we simply use trigonometry to find the parallel force.
+>
+> $$F = 25 \times \dfrac{3}{3.231} = 23.21$$
+>
+> After finding the force, its simple enough to determine the change in kinetic energy using **work done**, as we are not given a velocity.
+>
+> $$W = 23.21 \times (3-1) = 46.42 J$$
+>
+> 
+> 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
 <p style="text-align:center;font-weight:bold;font-size:20px;">You have reached the end</p>
