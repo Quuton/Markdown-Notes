@@ -60,6 +60,12 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Caviats](#caviats)
       - [LACP and PAgP Protocol](#lacp-and-pagp-protocol)
         - [Protocol outcomes](#protocol-outcomes)
+  - [DHCP](#dhcp)
+    - [About](#about-1)
+    - [Leasing protocol (DHCPv4)](#leasing-protocol-dhcpv4)
+      - [Leasing new IP](#leasing-new-ip)
+      - [Renwing IP](#renwing-ip)
+    - [DHCP Relay (DHCPv4)](#dhcp-relay-dhcpv4)
   - [First Hop Redundancy Protocol //todo](#first-hop-redundancy-protocol-todo)
   - [Internet Security](#internet-security)
     - [Common Types of Cyberattacks](#common-types-of-cyberattacks)
@@ -399,6 +405,37 @@ Switches using the PAgP can have 3 modes:
 | Passive  | Passive  |          No           |
 
 > LACP and PAgP behave identically.
+
+## DHCP
+### About
+Dynamic Host Configuration Protocol is a protocol that allows machines to automatically assign other machines partcipating in a network an IP Address.
+
+These machines could be a dedicated DHCP server suitable for big networks, or a simple router for smaller networks.
+### Leasing protocol (DHCPv4)
+#### Leasing new IP
+![Alt text](images/DHCPHAndshake.PNG)
+To receive an IP address, the client does these things:
+1. **Broadcast** a **DHCPDISCOVER** message to the network
+2. Wait for any DHCP Servers to reply with an **DHCPOFFER** message.
+3. Choose the first server to reply with the DHCPOFFER message. And send back a **DHCPREQUEST** message to that server.
+4. Wait for the **DHCPACK** message from the server, that contains useful information like an IPv4 Address, DNS Server, etc.
+
+#### Renwing IP
+Before the lease on the IP expires, your device will attempt to renew it.
+
+The following is done to renew the IP:
+1. Client attempts to send a **DHCPREQUEST** to the original server it got the IP Address from. If it is not replied to, it will instead **Broadcast** the **DHCPREQUEST**, allowing other DHCP servers to reply instead.
+2. The server returns a **DHCPACK** with the new IP Address. 
+
+### DHCP Relay (DHCPv4)
+Remember that leasing an IP address always starts with discovering a DHCP server through a **broadcast**. Recall also that a router will not facilitate broadcasts.
+
+Now, what do you do if the DHCP server is on a remote network?
+![Alt text](images/DHCPREmotenetwork.PNG)
+
+You can explicitly allow the router to relay DHCP messages.
+
+In cisco routers, you can use `ip helper-address` to allow routers to relay DHCP broadcasts directly to the DHCP server specified.
 
 ## First Hop Redundancy Protocol //todo
 
