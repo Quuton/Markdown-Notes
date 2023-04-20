@@ -67,19 +67,19 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Renwing IP](#renwing-ip)
     - [DHCP Relay (DHCPv4)](#dhcp-relay-dhcpv4)
   - [First Hop Redundancy Protocol //todo](#first-hop-redundancy-protocol-todo)
-  - [Internet Security](#internet-security)
+  - [Network Security](#network-security)
     - [Common Types of Cyberattacks](#common-types-of-cyberattacks)
       - [Distributed Denial of Service](#distributed-denial-of-service)
       - [Data Breaches](#data-breaches)
       - [Malware](#malware)
     - [Endpoint security](#endpoint-security)
-    - [LAN Attacks](#lan-attacks)
+    - [Local Network Attacks](#local-network-attacks)
       - [MAC Table flooding](#mac-table-flooding)
       - [DHCP Attacks](#dhcp-attacks)
         - [DHCP Starvation](#dhcp-starvation)
         - [DHCP Spoofing](#dhcp-spoofing)
-    - [STP Attack](#stp-attack)
-    - [DTP Spoofing](#dtp-spoofing)
+      - [STP Attack](#stp-attack)
+      - [DTP Spoofing](#dtp-spoofing)
 
 ## Preamble
 
@@ -439,7 +439,7 @@ In cisco routers, you can use `ip helper-address` to allow routers to relay DHCP
 
 ## First Hop Redundancy Protocol //todo
 
-## Internet Security
+## Network Security
 ### Common Types of Cyberattacks
 #### Distributed Denial of Service
 Distributed Denial of Service (DDoS) or Denial of Service (DoS) are types of attacks with the goal of effectively shutting down a computer by spamming it with too many requests that it cannot serve other legitimate users.
@@ -459,18 +459,18 @@ Common malware types include:
   - Keyloggers: Software that tracks the keys you pressed without your knowledge
   - Virus: Code that works by making other executables infected Eg: Malicious .dll
   - Trojan Horse: A seemingly harmless app that tries to introduce a backdoor for other malware payloads.
-  - Cryptoware: Software that encrypts all your data
+  - Cryptoware: Software that forcefully encrypts all your data
   - Ransomware: Cryptoware that offers to decrypt your data back to normal for ransom money or some other ransom.
   - Adware: Software that just stays on your computer to show advertisements.
   - Rootkits: Malware that sits together with the other core operating system files, making it tricky to remove.
   - Worm: Malware that automatically replicates itself and sends to other computers it can reach from your network, it can do so by exploiting vulnerabilities in apps or operating systems.
   - Botnet: A software that gains control over your computer, often used by hackers to facilitate a DDoS attack.
-  - Malicious Macros: Sneak malware that hides inside documents as malicious macros. (You can get hacked by opening a shady word document!)
+  - Malicious Macros: Sneak malware that hides inside documents as embedded malicious macros. (You can get hacked by opening a shady word document!)
 
 
 ### Endpoint security
 
-### LAN Attacks
+### Local Network Attacks
 #### MAC Table flooding
 
 #### DHCP Attacks
@@ -483,9 +483,9 @@ A computer connects to the network acting as a rogue DHCP server. The computer c
 - False DNS server, you can also point other devices to your own fake DNS server.
 - Invalid IP address, you can also effectively perform a DoS by giving an invalid IP address to a pc, it will not be able to participate in the network.
 
-### STP Attack
+#### STP Attack
 
-### DTP Spoofing
+#### DTP Spoofing
 
 
 

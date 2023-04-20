@@ -24,6 +24,7 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
     - [Deleting configurations](#deleting-configurations)
     - [Restarting the device](#restarting-the-device)
     - [Referencing multiple interfaces](#referencing-multiple-interfaces)
+    - [See function parameters](#see-function-parameters)
   - [Basic IOS diagnostics](#basic-ios-diagnostics)
     - [Show the MAC Table](#show-the-mac-table)
     - [Show the ARP Table](#show-the-arp-table)
@@ -76,10 +77,15 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Configuring a port channel](#configuring-a-port-channel)
       - [Configuring multi-vLAN trunk](#configuring-multi-vlan-trunk)
     - [Assigning a default gateway to the switch](#assigning-a-default-gateway-to-the-switch)
+    - [Port Security](#port-security)
+      - [About](#about)
+      - [Define maximum MAC Addresses](#define-maximum-mac-addresses)
+      - [Set the trusted MAC Addresses](#set-the-trusted-mac-addresses)
+      - [Set Action on Violation](#set-action-on-violation)
   - [Cisco Layer-3 router commands](#cisco-layer-3-router-commands)
     - [Configuring port addresses](#configuring-port-addresses)
     - [Static routing](#static-routing)
-      - [About](#about)
+      - [About](#about-1)
       - [Designating next-hop addresses](#designating-next-hop-addresses)
     - [Inter-vLAN routing](#inter-vlan-routing)
       - [Configuring sub-interfaces](#configuring-sub-interfaces)
@@ -89,6 +95,10 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Configuring the virtual HSRP group](#configuring-the-virtual-hsrp-group)
       - [Designating the Active Router](#designating-the-active-router)
       - [Preemptively reassume original role](#preemptively-reassume-original-role)
+    - [DHCP](#dhcp)
+      - [DHCP Relay](#dhcp-relay)
+    - [CDP](#cdp)
+    - [LLDP](#lldp)
 
 
 ## Basic IOS operations
@@ -150,6 +160,16 @@ You can also specify multiple batches using `,` as the seperator
 ```
 Router(config)# interface range FastEthernet0/0-4, GigabitEthernet0/0-2
 ```
+
+### See function parameters
+You can see the available options for a function using the `?` symbol.
+For example:
+
+```
+Switch(config)# Ip ?
+```
+
+This displays the available options for the `Ip` command.
 
 ## Basic IOS diagnostics
 ### Show the MAC Table
@@ -489,7 +509,24 @@ Swithes still need a default-gateway to be able to be controlled remotely.
 ```
 Switch(config)# ip default-gateway 192.168.0.1
 ```
+### Port Security
+#### About
+You can bind a device to a port, so that only that computer alone may access the port.
 
+This prevents an attacker being able to carry out attacks on the network, for example, DoS attacks by sending out bogus BPDUs, or faking a trunk connection to be able to spy on everyone.
+#### Define maximum MAC Addresses
+```
+S1(config-if)# Switchport Port-security maximum 1
+```
+#### Set the trusted MAC Addresses
+```
+S1(config-if)# Switchport Port-security mac-address-sticky
+```
+
+#### Set Action on Violation
+```
+S1(config-if)# Switchport Port-security violation ?
+```
 ## Cisco Layer-3 router commands
 
 ### Configuring port addresses
@@ -584,7 +621,20 @@ You can also configure the router to take back its original active role when it 
 ```
 R1(config-if)# standby 1 preempt
 ```
+### DHCP
+#### DHCP Relay
 
+### CDP
+
+### LLDP
+Enable the LLDP
+```
+lldp run
+```
+
+```
+do show lldp neighbour
+```
 
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
