@@ -254,6 +254,10 @@ So when an object is launched upwards, it is converting its kinetic energy into 
 Likewise when it is falling instead, the Gravitational potential energy is converted into kinetic energy.
 
 And when the object is at rest, there is no kinetic energy, only Gravitational potential energy.
+
+In short,
+
+$$K_0 + GPE_0 = K_1 + GPE_1$$
 ### Work Done Theorem
 ##### Work Done from difference in kinetic energy
 $$W = \Delta{K}$$

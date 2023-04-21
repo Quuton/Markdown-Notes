@@ -459,8 +459,8 @@ Common malware types include:
   - Keyloggers: Software that tracks the keys you pressed without your knowledge
   - Virus: Code that works by making other executables infected Eg: Malicious .dll
   - Trojan Horse: A seemingly harmless app that tries to introduce a backdoor for other malware payloads.
-  - Cryptoware: Software that forcefully encrypts all your data
-  - Ransomware: Cryptoware that offers to decrypt your data back to normal for ransom money or some other ransom.
+  - Crypto-malware: Software that forcefully encrypts all your data
+  - Ransomware: Crypto-malware that offers to decrypt your data back to normal for ransom money or some other ransom.
   - Adware: Software that just stays on your computer to show advertisements.
   - Rootkits: Malware that sits together with the other core operating system files, making it tricky to remove.
   - Worm: Malware that automatically replicates itself and sends to other computers it can reach from your network, it can do so by exploiting vulnerabilities in apps or operating systems.
