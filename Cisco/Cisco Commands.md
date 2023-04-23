@@ -95,32 +95,41 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Configuring the virtual HSRP group](#configuring-the-virtual-hsrp-group)
       - [Designating the Active Router](#designating-the-active-router)
       - [Preemptively reassume original role](#preemptively-reassume-original-role)
-    - [DHCP](#dhcp)
+    - [DHCP related commands](#dhcp-related-commands)
+      - [Excluding IPv4 Addresses from the pool](#excluding-ipv4-addresses-from-the-pool)
+        - [Single address exclusion](#single-address-exclusion)
+        - [Multi-address exclusion](#multi-address-exclusion)
+      - [Defining DHCP Pool name](#defining-dhcp-pool-name)
+      - [DHCP Server Options](#dhcp-server-options)
+        - [Define address pool](#define-address-pool)
+        - [Define default gateway](#define-default-gateway)
+        - [Define other DNS Servers](#define-other-dns-servers)
+        - [Define DNS domain name](#define-dns-domain-name)
       - [DHCP Relay](#dhcp-relay)
     - [CDP](#cdp)
     - [LLDP](#lldp)
 
 
 ## Basic IOS operations
+
 ### Entering privilege mode
 Most cisco device operations requires the user to be in priveleged mode, especially configurations to the device.
 To enter this mode, use `enter`
+
 ```
 Switch> enable
 Switch#
 ```
 ### Entering configuration mode
+
 To make any configurations to the cisco device, you have to enter config mode using `configure` in privilege mode.
-```
-Router# configure
-```
+
+
 From there on, a prompt will be shown asking for which location to configure, typically we simply put in `terminal`.
 
-A faster way to start configuring cisco devices:
 ```
 Router# configure terminal
 ```
-The prompt will be avoided.
 
 ### Saving the configuration
 
@@ -621,7 +630,37 @@ You can also configure the router to take back its original active role when it 
 ```
 R1(config-if)# standby 1 preempt
 ```
-### DHCP
+### DHCP related commands
+
+#### Excluding IPv4 Addresses from the pool
+##### Single address exclusion
+```
+Router(config)# ip dhcp excluded-address 192.168.0.1
+```
+
+##### Multi-address exclusion
+```
+Router(config)# ip dhcp excluded-address 192.168.0.1 192.168.0.200
+```
+
+> The command can be invoked multiple times to exlcude multiple ranges or multiple addresses
+
+#### Defining DHCP Pool name
+```
+Router(config)# ip dhcp pool pool-name
+Router(dhcp-config)#
+```
+
+#### DHCP Server Options
+##### Define address pool
+R1(dhcp-config)# network 192.168.10.0 255.255.255.0
+##### Define default gateway
+R1(dhcp-config)# default-router 192.168.10.1
+##### Define other DNS Servers
+R1(dhcp-config)# dns-server 192.168.11.5
+##### Define DNS domain name
+R1(dhcp-config)# domain-name example.com
+R1(dhcp-config)# end
 #### DHCP Relay
 
 ### CDP
@@ -635,6 +674,8 @@ lldp run
 ```
 do show lldp neighbour
 ```
+
+
 
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
