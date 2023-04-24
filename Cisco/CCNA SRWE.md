@@ -32,9 +32,10 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
         - [Untagged frames on the native vLAN](#untagged-frames-on-the-native-vlan)
       - [Voice vLAN](#voice-vlan)
   - [Inter-vLAN routing](#inter-vlan-routing)
-        - [Legacy inter-vLAN routing](#legacy-inter-vlan-routing)
-        - [Router on a stick](#router-on-a-stick)
-        - [Layer 3 Switch SVI](#layer-3-switch-svi)
+    - [Methods of inter-vLAN routing](#methods-of-inter-vlan-routing)
+      - [Legacy](#legacy)
+      - [Router on a stick](#router-on-a-stick)
+    - [Layer 3 Switch SVI](#layer-3-switch-svi)
   - [Spanning tree protocol](#spanning-tree-protocol)
     - [The STP algorithm](#the-stp-algorithm)
       - [About Bridge ID (BUID)](#about-bridge-id-buid)
@@ -66,8 +67,8 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Leasing new IP](#leasing-new-ip)
       - [Renwing IP](#renwing-ip)
     - [DHCP Relay (DHCPv4)](#dhcp-relay-dhcpv4)
-  - [First Hop Redundancy Protocol //todo](#first-hop-redundancy-protocol-todo)
-  - [Network Security](#network-security)
+  - [First Hop Redundancy Protocol //TODO](#first-hop-redundancy-protocol-todo)
+  - [Network Security//TODO](#network-securitytodo)
     - [Common Types of Cyberattacks](#common-types-of-cyberattacks)
       - [Distributed Denial of Service](#distributed-denial-of-service)
       - [Data Breaches](#data-breaches)
@@ -80,6 +81,8 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
         - [DHCP Spoofing](#dhcp-spoofing)
       - [STP Attack](#stp-attack)
       - [DTP Spoofing](#dtp-spoofing)
+  - [Miscellaneous information](#miscellaneous-information)
+    - [Cisco Relay Service](#cisco-relay-service)
 
 ## Preamble
 
@@ -187,18 +190,19 @@ A Layer 3 router is needed to route to different vLANs.
 2. **Router-on-a-stick**, good for small to medium networks
 3. **Layer 3 Switch Virtual Interface(SVI)**, good for medium to large networks
 
-##### Legacy inter-vLAN routing
+### Methods of inter-vLAN routing
+#### Legacy
 ![Alt text](images/legacy_inter_vlan_routing.PNG)
 In this routing method, we literally stick multiple cables from the switch to the router. Each port of the router is for one vLAN.
 
 The problem becomes obvious when we try to scale up, at some point we will run out of ports in the routers.
-##### Router on a stick
+#### Router on a stick
 ![Alt text](images/router_on_a_stick.png)
 
 The ‘router-on-a-stick’ inter-VLAN routing method overcomes the limitation of the legacy inter-VLAN routing method. It only requires one physical Ethernet interface to route traffic between multiple VLANs on a network.
 
 Routers have **sub-interfaces** in one port interface, it allows you to configure multiple IP Addresses for each of the sub-interface. Effectively, serving as many default gateways in just one port.
-##### Layer 3 Switch SVI
+### Layer 3 Switch SVI
 ![Alt text](images/Layer3_svi.PNG)
 The modern method of performing inter-VLAN routing is to use Layer 3 switches and switched virtual interfaces (SVI). An SVI is a virtual interface that is configured on a Layer 3 switch, as shown in the figure.
 
@@ -437,9 +441,12 @@ You can explicitly allow the router to relay DHCP messages.
 
 In cisco routers, you can use `ip helper-address` to allow routers to relay DHCP broadcasts directly to the DHCP server specified.
 
-## First Hop Redundancy Protocol //todo
+But do note `ip helper-address` **doesn't only foward DHCP requests**, see [Cisco Relay Service](#cisco-relay-service).
 
-## Network Security
+
+## First Hop Redundancy Protocol //TODO
+
+## Network Security//TODO
 ### Common Types of Cyberattacks
 #### Distributed Denial of Service
 Distributed Denial of Service (DDoS) or Denial of Service (DoS) are types of attacks with the goal of effectively shutting down a computer by spamming it with too many requests that it cannot serve other legitimate users.
@@ -487,7 +494,24 @@ A computer connects to the network acting as a rogue DHCP server. The computer c
 
 #### DTP Spoofing
 
+## Miscellaneous information
 
+This is **not unimportant information**, or **random fun facts**. I just dont know how to categorize them yet.
+
+### Cisco Relay Service
+
+The command `ip helper-address` allows cisco routers to foward specific data that they otherwise would have blocked. For example, **DHCP Broadcasts** from clients because broadcasts are usually blocked.
+
+These services are by default fowarded by cisco routers specially.
+
+- Port 37: Time
+- Port 49: TACACS
+- Port 53: DNS
+- Port 67: DHCP/BOOTP server
+- Port 68: DHCP/BOOTP client
+- Port 69: TFTP
+- Port 137: NetBIOS name service
+- Port 138: NetBIOS datagram service
 
 
 

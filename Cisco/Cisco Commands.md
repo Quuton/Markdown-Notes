@@ -45,6 +45,12 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Configure vty lines to use SSH](#configure-vty-lines-to-use-ssh)
       - [Changing SSH version](#changing-ssh-version)
     - [Toggling interfaces](#toggling-interfaces)
+    - [Enable DHCPv6](#enable-dhcpv6)
+      - [Enable unicast routing](#enable-unicast-routing)
+      - [Create Link-local address](#create-link-local-address)
+      - [Enable SLAAC or stateful address config](#enable-slaac-or-stateful-address-config)
+        - [Stateless config](#stateless-config)
+        - [Stateful config](#stateful-config)
   - [Cisco Layer-2 switch commands](#cisco-layer-2-switch-commands)
     - [Exclusive diagnostics //TODO](#exclusive-diagnostics-todo)
     - [Configuring duplex mode](#configuring-duplex-mode)
@@ -95,7 +101,10 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Configuring the virtual HSRP group](#configuring-the-virtual-hsrp-group)
       - [Designating the Active Router](#designating-the-active-router)
       - [Preemptively reassume original role](#preemptively-reassume-original-role)
-    - [DHCP related commands](#dhcp-related-commands)
+    - [Setting up DHCPv4](#setting-up-dhcpv4)
+      - [Toggling DHCP service](#toggling-dhcp-service)
+        - [Disabling DHCP](#disabling-dhcp)
+        - [Enabling DHCP](#enabling-dhcp)
       - [Excluding IPv4 Addresses from the pool](#excluding-ipv4-addresses-from-the-pool)
         - [Single address exclusion](#single-address-exclusion)
         - [Multi-address exclusion](#multi-address-exclusion)
@@ -106,7 +115,18 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
         - [Define other DNS Servers](#define-other-dns-servers)
         - [Define DNS domain name](#define-dns-domain-name)
       - [Viewing if DHCP is operational](#viewing-if-dhcp-is-operational)
-      - [DHCP Relay](#dhcp-relay)
+    - [Setting up DHCPv6](#setting-up-dhcpv6)
+      - [Enable IPv6 routing](#enable-ipv6-routing)
+      - [Define a DHCPv6 pool name](#define-a-dhcpv6-pool-name)
+      - [Other DHCPv6 options](#other-dhcpv6-options)
+        - [IPv6 Address pool(Stateful DHCP)](#ipv6-address-poolstateful-dhcp)
+        - [DNS Server](#dns-server)
+        - [Domain name](#domain-name)
+      - [Binding DHCPv6 to a router interface](#binding-dhcpv6-to-a-router-interface)
+        - [Stateless binding](#stateless-binding)
+        - [Stateful binding](#stateful-binding)
+    - [Relay Service](#relay-service)
+    - [FHRP](#fhrp)
     - [CDP](#cdp)
     - [LLDP](#lldp)
 
@@ -311,6 +331,24 @@ Switch(config-if)# no shutdown
 To turn the interface off:
 ```
 Router(config-if)# shutdown
+```
+### Enable DHCPv6 
+#### Enable unicast routing
+```
+R3(config)# ipv6 unicast-routing
+```
+#### Create Link-local address
+```
+R3(config-if)# ipv6 enable
+```
+#### Enable SLAAC or stateful address config
+##### Stateless config
+```
+R3(config-if)# ipv6 address autoconfig
+```
+##### Stateful config
+```
+R3(config-if)# ipv6 address dhcp
 ```
 
 ## Cisco Layer-2 switch commands
@@ -631,7 +669,17 @@ You can also configure the router to take back its original active role when it 
 ```
 R1(config-if)# standby 1 preempt
 ```
-### DHCP related commands
+### Setting up DHCPv4
+#### Toggling DHCP service
+##### Disabling DHCP
+```
+R1(config)# no service dhcp
+```
+
+##### Enabling DHCP
+```
+R1(config)# service dhcp
+```
 
 #### Excluding IPv4 Addresses from the pool
 ##### Single address exclusion
@@ -654,14 +702,21 @@ Router(dhcp-config)#
 
 #### DHCP Server Options
 ##### Define address pool
+```
 R1(dhcp-config)# network 192.168.10.0 255.255.255.0
+```
 ##### Define default gateway
+```
 R1(dhcp-config)# default-router 192.168.10.1
+```
 ##### Define other DNS Servers
+```
 R1(dhcp-config)# dns-server 192.168.11.5
+```
 ##### Define DNS domain name
+```
 R1(dhcp-config)# domain-name example.com
-R1(dhcp-config)# end
+```
 
 #### Viewing if DHCP is operational
 ```
@@ -672,12 +727,55 @@ GigabitEthernet0/0/1 is up, line protocol is up
   Address determined by DHCP
 ...
 ```
-#### DHCP Relay
-You cna also configure routers to foward dhcp broadcast directly to the dhcp server.
+
+### Setting up DHCPv6
+#### Enable IPv6 routing
+Needed for sourcing ICMPv6 RA Messages.
+```
+R1(config)# ipv6 unicast-routing
+```
+#### Define a DHCPv6 pool name
+```
+R1(config)# ipv6 dhcp pool pool-name
+R1(config-dhcpv6)#
+```
+#### Other DHCPv6 options
+##### IPv6 Address pool(Stateful DHCP)
+```
+R1(config-dhcpv6)# address prefix 2001:db8:acad:1::/64
+```
+
+##### DNS Server
+```
+R1(config-dhcpv6)# dns-server 2001:db8:acad:1::254
+```
+
+
+##### Domain name
+```
+R1(config-dhcpv6)# domain-name example.com
+```
+
+#### Binding DHCPv6 to a router interface
+##### Stateless binding
+```
+R1(config-if)# ipv6 nd other-config-flag
+R1(config-if)# ipv6 dhcp server IPV6-STATELESS
+```
+##### Stateful binding
+```
+R1(config-if)# ipv6 nd managed-config-flag
+R1(config-if)# ipv6 nd prefix default no-autoconfig
+R1(config-if)# ipv6 dhcp server IPV6-STATEFUL
+```
+
+### Relay Service
+You cna also configure routers to foward several information that they otherwise would have blocked. For example, **DHCP Broadcasts**
 
 ```
 R1(config-if)#ip helper-address 10.1.1.2
 ```
+### FHRP
 ### CDP
 
 ### LLDP
@@ -689,8 +787,6 @@ lldp run
 ```
 do show lldp neighbour
 ```
-
-
 
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
