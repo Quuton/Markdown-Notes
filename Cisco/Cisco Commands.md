@@ -105,6 +105,7 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
         - [Define default gateway](#define-default-gateway)
         - [Define other DNS Servers](#define-other-dns-servers)
         - [Define DNS domain name](#define-dns-domain-name)
+      - [Viewing if DHCP is operational](#viewing-if-dhcp-is-operational)
       - [DHCP Relay](#dhcp-relay)
     - [CDP](#cdp)
     - [LLDP](#lldp)
@@ -661,8 +662,22 @@ R1(dhcp-config)# dns-server 192.168.11.5
 ##### Define DNS domain name
 R1(dhcp-config)# domain-name example.com
 R1(dhcp-config)# end
-#### DHCP Relay
 
+#### Viewing if DHCP is operational
+```
+Router# show ip interface g0/0/1
+GigabitEthernet0/0/1 is up, line protocol is up
+  Internet address is 209.165.201.12/27
+  Broadcast address is 255.255.255.255
+  Address determined by DHCP
+...
+```
+#### DHCP Relay
+You cna also configure routers to foward dhcp broadcast directly to the dhcp server.
+
+```
+R1(config-if)#ip helper-address 10.1.1.2
+```
 ### CDP
 
 ### LLDP
