@@ -125,7 +125,7 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Choosing the HSRP version](#choosing-the-hsrp-version)
       - [Configuring the virtual HSRP group](#configuring-the-virtual-hsrp-group)
       - [Designating the Active Router](#designating-the-active-router)
-      - [Preemptively reassume original role](#preemptively-reassume-original-role)
+      - [Allow Active Router Re-election](#allow-active-router-re-election)
     - [Setting up DHCPv4](#setting-up-dhcpv4)
       - [Toggling DHCP service](#toggling-dhcp-service)
         - [Disabling DHCP](#disabling-dhcp)
@@ -828,11 +828,21 @@ The default priority value is 100. A higher value will determine which router is
 R1(config-if)# Standby 1 priority 100
 ```
 
-#### Preemptively reassume original role
-You can also configure the router to take back its original active role when it becomes operational once more.
+#### Allow Active Router Re-election
+You can also configure the router to re-elect an active router, somewhat similar to what happens in STP when choosing the root bridge.
+
+The command below allows the router to re-elect an active router with the highest priority whenever changes to the HSRP group occur.
+
+The router with preemption enabled can force things around, even if other routers do not have preemption enabled, but the router with preemption enabled and highest priority will take the role of active anyway.
+
+This means when another router joins the HSRP group with a higher router, the router with preemption enabled will give up the role.
+
+
 ```
 R1(config-if)# standby 1 preempt
 ```
+
+> When the Priority are the same, the router with a lower IP Address will win the active role. 
 ### Setting up DHCPv4
 #### Toggling DHCP service
 ##### Disabling DHCP

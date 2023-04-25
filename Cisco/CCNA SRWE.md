@@ -487,6 +487,13 @@ Common malware types include:
 
 ### Local Network Attacks
 #### MAC Table flooding
+A common attack by hackers is to flood the MAC Table of switches.
+
+Hackers use software like **macof** and fill up the switch's MAC table.
+
+When the switch's mac table becomes full, the switch will go into a failover mode, instead of fowarding frames as usual, it broadcasts everything its given.
+
+The hacker can then simply sit and read all the incoming frames.
 
 #### DHCP Attacks
 ##### DHCP Starvation
