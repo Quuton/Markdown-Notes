@@ -67,6 +67,7 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Leasing new IP](#leasing-new-ip)
       - [Renwing IP](#renwing-ip)
     - [DHCP Relay (DHCPv4)](#dhcp-relay-dhcpv4)
+    - [DHCPv6 SLAAC vs Statefull](#dhcpv6-slaac-vs-statefull)
   - [First Hop Redundancy Protocol //TODO](#first-hop-redundancy-protocol-todo)
   - [Network Security//TODO](#network-securitytodo)
     - [Common Types of Cyberattacks](#common-types-of-cyberattacks)
@@ -443,7 +444,14 @@ In cisco routers, you can use `ip helper-address` to allow routers to relay DHCP
 
 But do note `ip helper-address` **doesn't only foward DHCP requests**, see [Cisco Relay Service](#cisco-relay-service).
 
+### DHCPv6 SLAAC vs Statefull
+In a SLAAC (Stateless Address Autoconfiguration) DHCP mode, as the name suggests the DHCP server **does not keep track of leased IPv6-addresses**
 
+It only tells computers how to auto-generate their own IPv6 Address. See [TODO](#)
+
+In a statefull DHCP server, it keeps track of which IP addresses have been leased already.
+
+> IPv4 Does not have SLAAC, DHCPv4 Server **have** to remember which addresses were leased
 ## First Hop Redundancy Protocol //TODO
 
 ## Network Security//TODO

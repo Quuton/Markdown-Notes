@@ -31,7 +31,7 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
     - [Show the IP Configurations on the ports](#show-the-ip-configurations-on-the-ports)
     - [Show the vLAN configurations](#show-the-vlan-configurations)
     - [Show all configurations](#show-all-configurations)
-  - [Basic IOS configurations](#basic-ios-configurations)
+  - [IOS Device configurations](#ios-device-configurations)
     - [Setting a hostname](#setting-a-hostname)
     - [Setting a message of the day](#setting-a-message-of-the-day)
     - [Basic password authentication](#basic-password-authentication)
@@ -45,12 +45,21 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Configure vty lines to use SSH](#configure-vty-lines-to-use-ssh)
       - [Changing SSH version](#changing-ssh-version)
     - [Toggling interfaces](#toggling-interfaces)
-    - [Enable DHCPv6](#enable-dhcpv6)
+    - [Enable DHCPv6 Addressing](#enable-dhcpv6-addressing)
       - [Enable unicast routing](#enable-unicast-routing)
       - [Create Link-local address](#create-link-local-address)
       - [Enable SLAAC or stateful address config](#enable-slaac-or-stateful-address-config)
         - [Stateless config](#stateless-config)
         - [Stateful config](#stateful-config)
+    - [Reconnaissance tools](#reconnaissance-tools)
+      - [Toggle CDP](#toggle-cdp)
+        - [Disable CDP entirely](#disable-cdp-entirely)
+        - [Disable CDP on a port](#disable-cdp-on-a-port)
+      - [Show CDP Results](#show-cdp-results)
+      - [Toggle LLDP](#toggle-lldp)
+        - [Disable LLDP Entirely](#disable-lldp-entirely)
+        - [Disable LLDP on a port](#disable-lldp-on-a-port)
+      - [Show the LLDP results](#show-the-lldp-results)
   - [Cisco Layer-2 switch commands](#cisco-layer-2-switch-commands)
     - [Exclusive diagnostics //TODO](#exclusive-diagnostics-todo)
     - [Configuring duplex mode](#configuring-duplex-mode)
@@ -88,6 +97,22 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Define maximum MAC Addresses](#define-maximum-mac-addresses)
       - [Set the trusted MAC Addresses](#set-the-trusted-mac-addresses)
       - [Set Action on Violation](#set-action-on-violation)
+    - [Port Security](#port-security-1)
+      - [Enable port secuirty](#enable-port-secuirty)
+      - [Set maximum addresses](#set-maximum-addresses)
+      - [Configure trusted MAC Addresses](#configure-trusted-mac-addresses)
+        - [Manual](#manual)
+        - [Dynamic](#dynamic)
+        - [Sticky Dynamic](#sticky-dynamic)
+      - [Port Aging](#port-aging)
+        - [Configure expiration life](#configure-expiration-life)
+        - [Configure expiration type](#configure-expiration-type)
+      - [Setting up violation protocol](#setting-up-violation-protocol)
+        - [Example: Setting the restrict mode](#example-setting-the-restrict-mode)
+      - [Viewing the logs](#viewing-the-logs)
+        - [Overall](#overall)
+        - [Specific Interface](#specific-interface)
+    - [Dynamic ARP Inspection //TODO](#dynamic-arp-inspection-todo)
   - [Cisco Layer-3 router commands](#cisco-layer-3-router-commands)
     - [Configuring port addresses](#configuring-port-addresses)
     - [Static routing](#static-routing)
@@ -119,16 +144,12 @@ Get the latest version of the note [here](https://github.com/Quuton/Markdown-Not
       - [Enable IPv6 routing](#enable-ipv6-routing)
       - [Define a DHCPv6 pool name](#define-a-dhcpv6-pool-name)
       - [Other DHCPv6 options](#other-dhcpv6-options)
-        - [IPv6 Address pool(Stateful DHCP)](#ipv6-address-poolstateful-dhcp)
+        - [IPv6 Address pool(*Stateful DHCP*)](#ipv6-address-poolstateful-dhcp)
         - [DNS Server](#dns-server)
         - [Domain name](#domain-name)
       - [Binding DHCPv6 to a router interface](#binding-dhcpv6-to-a-router-interface)
         - [Stateless binding](#stateless-binding)
         - [Stateful binding](#stateful-binding)
-    - [Relay Service](#relay-service)
-    - [FHRP](#fhrp)
-    - [CDP](#cdp)
-    - [LLDP](#lldp)
 
 
 ## Basic IOS operations
@@ -224,7 +245,7 @@ Switch# show vlan brief
 Switch# show running-config
 ```
 
-## Basic IOS configurations
+## IOS Device configurations
 
 ### Setting a hostname
 
@@ -332,23 +353,65 @@ To turn the interface off:
 ```
 Router(config-if)# shutdown
 ```
-### Enable DHCPv6 
+### Enable DHCPv6 Addressing
 #### Enable unicast routing
 ```
-R3(config)# ipv6 unicast-routing
+Router(config)# ipv6 unicast-routing
 ```
 #### Create Link-local address
 ```
-R3(config-if)# ipv6 enable
+Router(config-if)# ipv6 enable
 ```
 #### Enable SLAAC or stateful address config
 ##### Stateless config
 ```
-R3(config-if)# ipv6 address autoconfig
+Router(config-if)# ipv6 address autoconfig
 ```
 ##### Stateful config
 ```
-R3(config-if)# ipv6 address dhcp
+Router(config-if)# ipv6 address dhcp
+```
+
+### Reconnaissance tools
+These commands allow you to perform Layer-2 discovery, and see what devices are connected to each other.
+
+#### Toggle CDP
+The Cisco Discovery Protocol(CDP) allows other devices with CDP to discover eachother and configure networks.
+
+CDP information is sent out CDP-enabled ports in a periodic, unencrypted multicast.
+
+That means hackers who are connected in the network can send false CDP information and trick the devices into thinking they are connected in a certain way.
+##### Disable CDP entirely
+```
+Switch(config)# no cdp run
+```
+
+##### Disable CDP on a port
+```
+Router(config-if)# no cdp enable
+```
+
+#### Show CDP Results
+```
+show cdp neighbors
+```
+
+#### Toggle LLDP
+Similar to CDP, the open standard LLDP is open to exploits from hackers sending false LLDP information.
+
+##### Disable LLDP Entirely
+```
+Switch(config)# no lldp run
+```
+##### Disable LLDP on a port
+```
+Router(config-if)# no lldp transmit
+Router(config-if)# no lldp receive
+```
+
+#### Show the LLDP results
+```
+do show lldp neighbour
 ```
 
 ## Cisco Layer-2 switch commands
@@ -575,6 +638,107 @@ S1(config-if)# Switchport Port-security mac-address-sticky
 ```
 S1(config-if)# Switchport Port-security violation ?
 ```
+
+### Port Security
+One way hackers can attack a network is by providing bogus MAC replies.
+
+Hackers can cause a DoS by flooding the switch's MAC Table with fake addresses, new legit clients are unable to forward to be fowarded to because the switch cant remember any more mac addresses.
+
+Or hackers can fake a machine identity by providing the mac address of a legit computer, causing the fowarded frames to be sent to the hacker.
+
+Port security allows the switch to check if the mac address is truted before fowarding.
+
+#### Enable port secuirty
+
+```
+S1(config-if)# switchport mode access
+S1(config-if)# switchport port-security
+```
+
+#### Set maximum addresses
+Set maximum number of addresses able to use the port
+```
+Switch(config-if)# switchport port-security maximum 8192
+```
+
+#### Configure trusted MAC Addresses
+##### Manual
+```
+Switch(config-if)# switchport port-security mac-address 68-ff-7b-1d-3d-e9
+```
+##### Dynamic
+The device remembers whatever address was in the mac table. So the currently connected device is trusted.
+
+However this information is lost on reboot
+```
+Switch(config-if)# switchport port-security
+```
+##### Sticky Dynamic
+The dynamically learned addresses are saved to the running config, which you can later save to the startup.
+```
+Switch(config-if)# switchport port-security mac-address sticky 
+```
+#### Port Aging
+You can also configure the trusted mac addresses to expire. Whether static or dynamic.
+
+##### Configure expiration life
+The time range is anywhere from 0 to 1440 minutes.
+```
+S1(config-if)# switchport port-security aging time 10 
+```
+##### Configure expiration type
+There are 2 types of expiration
+- **inactivity**, secure addresses are removed when no traffic with the source address exists for some time.
+- **absolute**, secure addresses are removed at a certain time, regardless active or inactive.
+```
+S1(config-if)# switchport port-security aging type inactivity 
+```
+
+#### Setting up violation protocol
+In case an attacker does actually try to attack. Some protocol is needed on what to do next.
+
+The options are:
+
+|   Mode   |                                                      Protocol                                                      |
+| :------: | :----------------------------------------------------------------------------------------------------------------: |
+| Protect  | On violation, the port drops the untrusted frame, then immediately goes into error-disabled state and logs the incident, you will need to use `no shutdown` to restore to operation. |
+| Restrict |    Drops frames with untrusted source address, increments the Security Violation counter and logs the violation.    |
+| Shutdown |     Simply just drop the untrusted source frames, no logging.                                                                                                               |
+
+##### Example: Setting the restrict mode
+```
+Switch(config-if)# switchport port-security violation restrict 
+```
+
+#### Viewing the logs
+You can view the port security configurations and violations.
+##### Overall
+```
+S1# show port-security
+```
+##### Specific Interface
+```
+S1# show port-security interface fa0/1
+```
+**Output**
+```
+Port Security              : Enabled
+Port Status                : Secure-shutdown
+Violation Mode             : Shutdown
+Aging Time                 : 10 mins
+Aging Type                 : Inactivity
+SecureStatic Address Aging : Disabled
+Maximum MAC Addresses      : 2
+Total MAC Addresses        : 2
+Configured MAC Addresses   : 1
+Sticky MAC Addresses       : 1
+Last Source Address:Vlan   : a41f.7273.018c:1
+Security Violation Count   : 1
+```
+### Dynamic ARP Inspection //TODO
+A security measure against ARP attacks.
+
+
 ## Cisco Layer-3 router commands
 
 ### Configuring port addresses
@@ -740,7 +904,7 @@ R1(config)# ipv6 dhcp pool pool-name
 R1(config-dhcpv6)#
 ```
 #### Other DHCPv6 options
-##### IPv6 Address pool(Stateful DHCP)
+##### IPv6 Address pool(*Stateful DHCP*)
 ```
 R1(config-dhcpv6)# address prefix 2001:db8:acad:1::/64
 ```
@@ -768,24 +932,12 @@ R1(config-if)# ipv6 nd managed-config-flag
 R1(config-if)# ipv6 nd prefix default no-autoconfig
 R1(config-if)# ipv6 dhcp server IPV6-STATEFUL
 ```
-
-### Relay Service
+> SLAAC(stateless) is only available for IPv6 Systems.
+> 
 You cna also configure routers to foward several information that they otherwise would have blocked. For example, **DHCP Broadcasts**
 
 ```
 R1(config-if)#ip helper-address 10.1.1.2
-```
-### FHRP
-### CDP
-
-### LLDP
-Enable the LLDP
-```
-lldp run
-```
-
-```
-do show lldp neighbour
 ```
 
 
