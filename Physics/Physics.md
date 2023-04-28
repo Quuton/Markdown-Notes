@@ -50,6 +50,14 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
         - [Work Done in falling object](#work-done-in-falling-object)
     - [Rate of energy](#rate-of-energy)
       - [Power](#power)
+  - [Mass in motion](#mass-in-motion)
+    - [Momentum and impulse](#momentum-and-impulse)
+      - [Momentum](#momentum)
+      - [Impulse](#impulse)
+      - [Momentum and impulse theorem](#momentum-and-impulse-theorem)
+    - [Conservation of linear momentum](#conservation-of-linear-momentum)
+    - [Types of collision](#types-of-collision)
+    - [Solving collisions in 2 dimensions](#solving-collisions-in-2-dimensions)
   - [Recommended Units for calculating](#recommended-units-for-calculating)
 
 ## Basic Kinematics
@@ -268,6 +276,38 @@ $$W = \Delta{U} = mg(h_1 - h_0)$$
 ### Rate of energy
 #### Power
 $$P = \dfrac{W}{t}$$
+
+## Mass in motion
+### Momentum and impulse
+#### Momentum
+$$\overrightarrow{P} = M \times \overrightarrow{v}$$
+
+#### Impulse
+It is said to be the change in an object's momentum.
+$$\overrightarrow{T} = \overrightarrow{F} \times \Delta{t}$$
+
+#### Momentum and impulse theorem
+It can be said that:
+$$\overrightarrow{P} = \overrightarrow{T}$$
+
+or
+
+$$M \times \overrightarrow{v} = \overrightarrow{F} \times \Delta{t}$$
+
+### Conservation of linear momentum
+Where there is no acting external force, liek air resistance, friction, etc.
+$$m_0 \times u_0 + m_1 \times u_1 = m_0 \times v_0 + m_1 \times v_1$$
+
+Where $u$ = initial velocity pre-collision, and $v$ = final velocity post collision
+
+### Types of collision
+Generally collision fall between 2 types, elastic or inelastic or somewhere between the both. The "elasticity" refers to how momentum is transfered when objects collide.
+
+### Solving collisions in 2 dimensions
+Its really just solving 1D collisions twice, once for each axis.
+
+
+
 
 ## Recommended Units for calculating
 The table below shows the recommended metrics when calculating. It is advised to convert values into the form below.

@@ -137,7 +137,75 @@ The ski slopes at Bluebird Mountain make use of tow ropes to transport snowboard
 >
 > $$W = 23.21 \times (3-1) = 46.42 J$$
 >
+
+
+## Mass in motion problems
+### Problem 1: Simple Ball Collision
+
+A `2.00 kg` ball moving at `4.00 m/s` to the right collides with a `1.00 kg` ball moving `2.00 m/s` to the left. Th coefficient of restitution $e$ is `0.7`. Find the new speeds and directions of the balls after collision.
+
+> <div class=misc>Solution</div>
+>
+> To solve this, we can use the formula for the coefficient of restitution.
+>
+> Where $e = \dfrac{u_1 - u_0}{v_0 - v_1}$
+>
+> Substituting the given variables
+> $$0.7 = \dfrac{u_1 - u_0}{4 - (-2)}$$
+>
+> $$u_1 - u_0 = 0.7 \times 6 = 4.2$$
+>
+> In other words, the velocity u_2 is 4.2 m/s more than u_1,
+>
+> $$u_1 =u_0 + 4.2$$
+> We now have something to use together with the conservation of linear momentum. Where
+>
+> $$m_0 \times u_0 + m_1 \times u_1 = m_0 \times v_0 + m_1 \times v_1$$
+>
+> $$ 2u_0 + u_1 = (4 \times 2) + (-2)$$
+>
+> $$2u_0 + u_1 = 6$$
+>
+> Substituting the earlier equation of $u_2$
+>
+> $$2u_0 + (u_0 + 4.2) = 6$$
 > 
+> $$3u_0 + 4.2 = 6$$
 > 
+> $$u_0 = \dfrac{6-4.2}{3} = $$
+
+### Problem 2:
+a `0.01 kg` marble slides to the left with a velocity of `0.40 m/s`. It collides with another ball of `0.03 kg` sliding to the right at `0.2 m/s`. Assume there is no friction and the collisions is perfectly inelastic.
+
+### Problem 3:
+A tennis ball was dropped on the floor from a height of `1.0 m`, it rebounds up to a height of `0.7 m`.
+- a. Find the coefficient of restitution
+- b. Determine the hieght of the second rebound
+
+> <div class="misc">Solution</div>
+>
+> First, we can assume the wall to be an object that never has velocity
+>
+> $$e = \dfrac{u_1 - u_0}{v_1 - v_0}$$
+>
+> $$e = \dfrac{0 - u_0}{v_1 - 0} = \dfrac{-u_1}{v_1}$$
+>
+> However note that we dont have velocities to work with, so we cannot immediately find $e$. But we can use a formula to find velocity
+>
+> $$v = \sqrt{2gh}$$
+>
+> Using this formla we need to find 2 velocities.
+>
+> $$u_1 = \sqrt{2 \times 9.8 \times 1}$$
+>
+> $$u_1 = \sqrt{2 \times 9.8 \times0.7}$$
+> Using this, we find $e$ now.
+>
+> $$e =\dfrac{-3.7}{-4.47} = $$
+
+### Problem 4: Collision in 2 dimensions
+
+
+
 ![Alt text](../Resources/images/Draco%20Centaur.png)
 <p style="text-align:center;font-weight:bold;font-size:20px;">You have reached the end</p>
