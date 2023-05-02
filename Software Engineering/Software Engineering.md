@@ -68,6 +68,15 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
     - [Safety assurance processes](#safety-assurance-processes)
       - [Individual responsibility](#individual-responsibility)
       - [Formal verification](#formal-verification)
+  - [Secuirty Engineering](#secuirty-engineering)
+    - [Compromisable aspects](#compromisable-aspects)
+    - [3 Levels of secuirty](#3-levels-of-secuirty)
+      - [Infrastructure security](#infrastructure-security)
+    - [Security and dependability](#security-and-dependability)
+    - [Control methods](#control-methods)
+    - [Making a documentation on security policy](#making-a-documentation-on-security-policy)
+    - [Assessing security risks](#assessing-security-risks)
+      - [Security requirements](#security-requirements)
 
 ## Software testing
 ##### The three stages of testing
@@ -441,7 +450,89 @@ This is so that
 
 #### Formal verification
 
+## Secuirty Engineering
+### Compromisable aspects
+These are things that you can lose when someone tries to attack you.
 
+- Confidentiality, keeping information a secret
+- Integrity, knowing your data is uncorrupt and true. An attacker may delete and alter data, making you question if the data is true or not.
+- Availability, the ability to simply operate. Attackers like to enact DDoS attacks to shut down services. 
+
+### 3 Levels of secuirty
+- Infrastructure secuirty, the secuirty of all systems and networks to provide infrastructure and services to an organization
+- Application security, The secuirty of individual applications
+- Operational security, secure operation of the use of the business's systems.
+
+#### Infrastructure security
+Infrastructure security is primarily a system management problem, where system 
+managers configure the infrastructure to resist attacks
+
+1. User and permission management involves adding and removing users from the 
+system, ensuring that appropriate user authentication mechanisms are in place, 
+and setting up the permissions in the system so that users only have access to the 
+resources they need.
+2. System software deployment and maintenance involves installing system software 
+and middleware and configuring these properly so that security vulnerabilities are 
+avoided. It also involves updating this software regularly with new versions or 
+patches, which repair security problems that have been discovered.
+Operating System
+Generic, shared applications (browsers, email, etc.)
+Database management
+Middleware
+Reusable components and libraries
+Application
+Network Computer hardware
+3. Attack monitoring, detection, and recovery involves monitoring the system for 
+unauthorized access, detecting and putting in place strategies for resisting 
+attacks, and organizing backups of programs and data so that normal operation 
+can be resumed after an external attack.
+
+### Security and dependability
+|     Term      |                                    Definition                                     |
+| :-----------: | :-------------------------------------------------------------------------------: |
+|     Asset     |                       Something to be protected (Eg: Data)                        |
+|    Attack     | An exploitation of vulnerability where the attacker tries to compromise something (Eg: Privilege escalation through weird action in OS) |
+|    Control    |                  A protective measure to reduce vulnerabilities  (Eg: Escaped input to prevent XSS or SQL Injection)                |
+|   Exposure    |                        Possible loss or harm to the system   (Eg: Finanical issues from legal action from users affected by hack)                 |
+|    Threat     |          Circumstances that have potential to cause harm to the computer (Eg: A hacker guessing credentials)        |
+| Vulnerability |                  A weakness in the system that can be exploited  (Eg: Unhashed passwords 💀)                 |
+
+
+### Control methods
+- Vulnerability avoidance
+
+Controls that are intended to ensure that attacks are 
+unsuccessful. (Eg: Not connecting to the internet)
+
+- Attack detection and neutralization
+
+Controls that detect and repel attacks. Usually the monitor operation and notice unusual usage patterns. They can shut down parts of the system to prevent attacks from continuing. 
+
+- Exposure limitation and recovery
+
+Controls that help support recovery and mitigate loss. Backing up the data occasionally. 
+
+### Making a documentation on security policy
+- The assets to be protected, not all assests need to be protected, some are just fine letting anyone view.
+- The level of protection for assets, more critical assets like data should have stronger security. Otherwise costs will incur!
+- The responsibilities of individual users, managers, and the organization. Eg: Users should think of passwords stronger than their brithdate.
+- Existing security technologies and procedures that should be maintained
+
+### Assessing security risks
+- Preliminary risk assessment
+
+In here we identify generic risks that the system may have and decide on the feasible solutions to provide adequate security for reasonable cost.
+
+- Design risk assessment
+
+This assessment takes place during the system development, the results may change the security requirements and possibly new requirements.
+
+- Operational risk assessment
+
+This assessment focuses when the system is beign sued and the risks that can occur during operation.
+For example, users who leave a computer unattended with their account session ongoing. To solve this, simply add a simple timeout to automatically log out the users after some inactivity.
+
+#### Security requirements
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
 <p style="text-align:center;font-weight:bold;font-size:20px;">You have reached the end</p>
