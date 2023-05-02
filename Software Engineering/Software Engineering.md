@@ -77,6 +77,14 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
     - [Making a documentation on security policy](#making-a-documentation-on-security-policy)
     - [Assessing security risks](#assessing-security-risks)
       - [Security requirements](#security-requirements)
+    - [Risk-driven security requirements process](#risk-driven-security-requirements-process)
+      - [Asset analysis](#asset-analysis)
+      - [Threat analysis](#threat-analysis)
+    - [Misuse case](#misuse-case)
+    - [Architecture design for security](#architecture-design-for-security)
+      - [System layers](#system-layers)
+    - [Design guidelines](#design-guidelines)
+    - [Secure systems programming](#secure-systems-programming)
 
 ## Software testing
 ##### The three stages of testing
@@ -533,6 +541,96 @@ This assessment focuses when the system is beign sued and the risks that can occ
 For example, users who leave a computer unattended with their account session ongoing. To solve this, simply add a simple timeout to automatically log out the users after some inactivity.
 
 #### Security requirements
+The preliminary risk assessment generally needs these requirements for support:
+- Risk avoidance requirements
+- Risk detection requirements
+- Risk mitigation requirements
+
+### Risk-driven security requirements process
+1. **Asset identification**, find out what assets need protection
+2. **Asset value assessment**, find out how important an asset is
+3. **Exposure assessment**, find out how much damage will occur if the asset is compromised
+4. **Threat identification**, find out possible threats to the system
+5. **Attack assessment**, decompose the threats into potential attacks that will occur on the system
+6. **Control identification**, propose the solutions to mitigate or prevent the attack
+7. **Feasibility assessment**, find out a cost-effective method to apply the controls
+8. **Security requirements definition**, everything previously studied is compiled into the defined document.
+  
+Below is an example
+
+#### Asset analysis
+|        Asset        |                value                 |                                      Exposure                                      |
+| :-----------------: | :----------------------------------: | :--------------------------------------------------------------------------------: |
+|  Patient database   | High, required for all consultations | High, finanical loss from legal, recovery, reduction of business, reputation, etc. |
+| Single patient data |  Low, but high for important people  | Low, possibly ruined reputation |
+#### Threat analysis
+|             Threat             | Chance |              Control              | Feasibility |
+| :----------------------------: | :----: | :-------------------------------: | :---------: |
+| unauthorized user gains access |  Low   | Only allow system management from specific locations that are physically secure        | Low cost, risk at  key distribution            |
+
+### Misuse case
+![Alt text](images/misusecase.PNG)
+Remember UML use case diagrams, these can also represent how an attacker might misuse a system feature to cause trouble.
+
+### Architecture design for security
+- **Protection**, how should one organize the system components and assets so that they can be protected from an attack
+
+- **Distribution**, how should one organize the system and assets so losses from an attack are minimized
+
+#### System layers
+
+- Platform-level protection. The top level controls access to the platform on
+which the patient record system runs.
+
+- Application-level protection, this level is built into the applciation itself. Autehnticating the user, authorizing the user.
+
+- Record-level protection, this is relevant when data is directly accessed. For example checking if a user is authenticated and authorized to carry out operations on a record.
+
+### Design guidelines
+1. Base security decisions on an explicit security policy
+
+Policies define the “what” of security rather than the “how”.
+
+
+2. Use defense in depth
+
+you should not rely on a single
+mechanism to ensure security. Use multiple techniques and technologies.
+
+3. Fail securely
+
+Its probably inevitable that your systm will at some point fail. But it should not be a oppurtunity for hackers.
+
+4. Balance security and usability
+
+The demands of security and usability are often contradictory. To increase security, sometimes it can be at the cost of user experience.
+
+Eg: Password requirements, need numbers, symbols, capitalized letters, etc.
+
+5. Log user actions
+
+One of the principles in AAA is accounting, its keeping track of everything that happens.
+
+6. Use redundancy and diversity to reduce risk
+
+Redundancy means to support more than one version of the software. Diversity means for the same software to be implemented on different platforms.
+
+Eg: Having a mobile app that offers updates, but doesnt make only the lastest version able to work. The app also works on android, iOS, etc.
+
+7. Specify the format of system inputs
+
+8. Compartmentalize your assets
+
+Dont let users access all data, follow the "need to knoww" principle.
+
+9. Design for deployment
+
+a development enviroment is different from production.
+
+10. Design for recovery
+
+### Secure systems programming
+//todo
 
 ![Alt text](../Resources/images/Draco%20Centaur.png)
 <p style="text-align:center;font-weight:bold;font-size:20px;">You have reached the end</p>
