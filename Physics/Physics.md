@@ -58,6 +58,19 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
     - [Conservation of linear momentum](#conservation-of-linear-momentum)
     - [Types of collision](#types-of-collision)
     - [Solving collisions in 2 dimensions](#solving-collisions-in-2-dimensions)
+  - [Electric charges](#electric-charges)
+    - [Coloumb's Law](#coloumbs-law)
+    - [Electric Force](#electric-force)
+      - [Electric field from a force](#electric-field-from-a-force)
+      - [Electric field from a point charge](#electric-field-from-a-point-charge)
+  - [Practical electricity](#practical-electricity)
+    - [Ohm's Law](#ohms-law)
+    - [Rules of VIR](#rules-of-vir)
+    - [Measuring Power Output](#measuring-power-output)
+    - [Resistivity](#resistivity)
+      - [Factor of Material](#factor-of-material)
+      - [Factor of Temeprature](#factor-of-temeprature)
+    - [Internal resistance](#internal-resistance)
   - [Recommended Units for calculating](#recommended-units-for-calculating)
 
 ## Basic Kinematics
@@ -306,8 +319,106 @@ Generally collision fall between 2 types, elastic or inelastic or somewhere betw
 ### Solving collisions in 2 dimensions
 Its really just solving 1D collisions twice, once for each axis.
 
+## Electric charges
+### Coloumb's Law
+This law describes the electrostatic force (or electric force) between two charged particles.
+
+$$F = k \dfrac{|q_1| |q_2|}{r^2}$$
+
+Where $k$ is the Coulomb Constant, $8.99 × 10^9 \space Nm^2/C^2$
+
+> The equation above can be applied similarly to the way you apply [gravity](#gravitational-force).
+
+Similar to magnets, like charges will repel each other, exerting forces in opposite directions. And unlike charges will want to attract, having forces that go to each other.
+
+![Alt text](images/electroforce.jpg)
+
+And if particles are in a 2D scenario instead of 1D. Calculate for each axis seperately.
+
+### Electric Force
+#### Electric field from a force
+A charged particle sets up an electric field (a vector quantity) in the surrounding space. If a second charged particle is located in that space, an electrostatic force acts on it due to the magnitude and direction of the field at its location.
+
+The electric field $\overrightarrow{E}$ at any point can be found with
+$$\overrightarrow{E} = \dfrac{\overrightarrow{F}}{q_0}$$
+Where $\overrightarrow{F}$ is the force exerted on the particle, and $q_0$ is the charge of the particle affected.
+
+> It is not relevant to know the $q$ of the particle setting up the electric field.
+
+#### Electric field from a point charge
+The difference is, we have another charged particle or a definite point instead of some uniform field.
+
+So the effective elctric field at some point can be found using the distance to the exerting point $r$ and the exerting charged particle's field $q$.
+
+$$E = k \dfrac{q}{r^2}$$
+
+## Practical electricity
+### Ohm's Law
+Generally, every object can actually conduct electricity. Things like plastic, glass, paper, etc can conduct electricity if the volatage is high enough.
+
+We categorize their ability to conduct electricity through  measuring their **resistance**. So plastic and glass can be safely used as insulators because their resistance is whoppingly high.
+
+The relationship of electricity is usually tied together by this equation:
+$$V = I \times R$$
+
+Where $V$ is the voltage or potential difference, it is the energy to drive electrons in a medium.
+
+$I$ is the current, it is the measurement of how many electrons are actually moving.
+
+$R$ is the resistance, how much it tries to stop the electrons from moving freely.
+
+### Rules of VIR
+Electricity behaves differently the moment it can branch.
+Circuits with said branches are called "**parallel**" circuits. Because they usually have components that dont connect to each other directly, but share a branch.
+
+Circuits that dont do this and connect every component in chains is called a "**series**" circuit.
 
 
+### Measuring Power Output
+Power can be derived if you know the voltage and the current
+$$P = V I$$
+
+### Resistivity
+#### Factor of Material
+The wires you use are also not perfect and has resistance on the electricity.
+
+The resistivity can be calculated using:
+$$R = \rho \dfrac{L}{A}$$
+
+Where $L$ is the length of the wire in meters, $A$ is the cross-sectional area in meters squared, and $\rho$ is the resistivity factor, which is different for each material.
+
+#### Factor of Temeprature
+Material isnt the only thing that defines resistance.
+So is the temperature.
+
+**Generally the hotter an object is, the more resistant it is**
+
+$$\rho = \rho_0 [1 + a(T - T_0)]$$
+
+$T$ is the final temperature and $T_0$ is the initial temperature. $a$ is a temperature coefficient for resistivity, different for every material.
+
+As the equation suggests. the hotter the object becomes, the resistivity factor $\rho$ also increases. Since $\rho$ and $R$ are directly proportional, the equation also works with resistance straight away.
+
+$$R = R_0 [1 + a(T - T_0)]$$
+
+
+### Internal resistance
+So the batteries you use for a power source arent exactly free from resistance either.
+
+Batteries have an internal resistance, just pretend its another resistor connected.
+
+Now you have 2 new equations:
+
+The typical Ohm's Law
+$$V = \epsilon - Ir$$
+
+$$IR = \epsilon - Ir$$
+
+$V$ here is still voltage of the circuit, **having taking account of the internal resistance already**. $\epsilon$ is the supposed voltage if the battery was perfect.
+
+$R$ is the efffective resistance, and $r$ is the internal resistance of the battery.
+
+> This also means if a voltage source is not connected to anything, it can be said that $V = \epsilon$
 
 ## Recommended Units for calculating
 The table below shows the recommended metrics when calculating. It is advised to convert values into the form below.
