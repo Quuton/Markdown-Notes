@@ -65,8 +65,11 @@ MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$']]}, messageStyle: "none" })
       - [Electric field from a point charge](#electric-field-from-a-point-charge)
   - [Practical electricity](#practical-electricity)
     - [Ohm's Law](#ohms-law)
+      - [Measuring Power Output](#measuring-power-output)
     - [Rules of VIR](#rules-of-vir)
-    - [Measuring Power Output](#measuring-power-output)
+      - [Gimmicks in the series branch](#gimmicks-in-the-series-branch)
+      - [Gimmicks in the parallel branches](#gimmicks-in-the-parallel-branches)
+      - [Summary](#summary)
     - [Resistivity](#resistivity)
       - [Factor of Material](#factor-of-material)
       - [Factor of Temeprature](#factor-of-temeprature)
@@ -367,16 +370,41 @@ $I$ is the current, it is the measurement of how many electrons are actually mov
 
 $R$ is the resistance, how much it tries to stop the electrons from moving freely.
 
+![Alt text](images/vir.jpg)
+
+
+#### Measuring Power Output
+Power can be derived if you know the voltage and the current
+$$P = V I$$
+
 ### Rules of VIR
 Electricity behaves differently the moment it can branch.
 Circuits with said branches are called "**parallel**" circuits. Because they usually have components that dont connect to each other directly, but share a branch.
 
 Circuits that dont do this and connect every component in chains is called a "**series**" circuit.
 
+#### Gimmicks in the series branch
+In a **series** circuit or some continous branch, the **voltage** may be different across different devices, but its sum will stay the same.
 
-### Measuring Power Output
-Power can be derived if you know the voltage and the current
-$$P = V I$$
+**Current** however stays the same wherever in the series branch, wherever you measure next to any device, the current stays the same.
+
+**Resistance** is summed up as normal addition. If they are next to each other, add their resistances and you can consider them 1 resistor.
+#### Gimmicks in the parallel branches
+Regardless of branching, the **voltage** stays the same across every parallel branch, but still in a given branch, the **voltage** will differ across devices on that branch, but it sums up to be the same voltage as other branches.
+
+Current here is divided in branches, it is not shared equally. But just like its older gimmick, in a given branch, current is the same anywhere within.
+
+**Resistance** behaves weirdly in branches, instead of summing up, you need to find the reciprocal.
+
+$$\dfrac{1}{R_0} + \dfrac{1}{R_1} + ... = \dfrac{1}{R_t}$$
+
+> Do not keep the whole $\dfrac {1}{R_t}$, the resistance value you are looking for is simply $R_t$.
+
+#### Summary
+![Alt text](images/gimmick.png)
+
+
+
 
 ### Resistivity
 #### Factor of Material
