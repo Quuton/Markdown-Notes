@@ -142,9 +142,68 @@ A security measure against ARP attacks.
 
 
 
-## Redundancy measures
+## Setting up WANs
+### Setting up a WAN Serial Connection
+You may connect routers through a Serial DTE Connection. This is the stadnard connection type for WAN networks.
 
-## Static routing and Routing information
+Simply conenct the routers in their Serial ports, you may have to cuztomize the router first to have a module that supports serial ports.
+
+#### Tuning the clock rate
+To syncrhonize the connection, you can use `clock`.
+```
+R1(config)#int se0/0/0
+R!(config-if)clock rate 128000
+```
+#### Configuring the Loopback virtual interface
+```
+int lo0
+ip add 204.194.46.225 255.255.255.224
+```
+
+### Setting up Router information protocol
+This protocol allows routers to learn information about remote networks, so they can determine best paths to a computer.
+
+You may be asked to set a specific RIP version, use the `version` keyword.
+
+After which you can ask the router to keep tabs of remote networks by adding it using `network` followed by the address.
+```
+R1(config)# router rip
+R1(config-rip)# version 2 
+R1(config-rip)# network 10.1.1.0
+```
+### Setting up HSRP
+Here is a cisco propietary protocol designed to minimize failure in the network by allowing routers to share virtual addresses. In the event one router goes down, other routers may take over.
+
+It typically needs 2 routers and a switch
+- The active router, that will foward traffic
+- The standby routers, that sit still and listen for hello messages from the active router to make sure its alive
+- The switch is responsible for sending ARP broadcasts to routers to find out which one is active.
+
+#### Configuring HSRP Version
+```
+R1(config)# int g0/0
+R1(config-if)# standby version 2
+```
+
+#### Configuring HSRP Version
+```
+R1(config-if)# standby <HSRP GROUP ID> ip 10.10.1.1
+```
+
+#### Configuring HSRP Priority
+This is needed to choose an active router in the HSRP group.
+```
+R1(config-if)# standby <HSRP GROUP ID> priority 100
+```
+#### Configuring HSRP Preemptiveness
+A router that has gone offline can resume its active role if preempt is on.
+```
+R1(config-if)# standby <HSRP GROUP ID> preempt
+```
+#### View HSRP Config
+```
+R1# show standby brief
+```
 
 ## Spanning tree protocol
 ### Configuring the spanning tree protocol
