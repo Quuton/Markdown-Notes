@@ -8,10 +8,10 @@
 /* blockquote {
     padding-block:0.5em;
 } */
-h1 {
+h1, h2 {
     font-family:'Jetbrains Mono',sans-serif
 }
-h2,h3,h4,h5,li,ul,table,p, .blockquote {
+h3,h4,h5,li,ul,table,p, .blockquote {
     font-family:'Tahoma',sans-serif
 }
 h1,
