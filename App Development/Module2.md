@@ -31,7 +31,7 @@ A Flowlayout can prefer to align things, simply pass this in the constructor.
 public FlowLayout(int alignment, int hgap, int vgap)
 ```
 
-### BorderLayout
+### BorderLayout TODO
 The default for a top-level JWindow or JFrame.
 > A JFrame or JWindow is a container that provides a window interface to interact with. JPanels on the other hand are merely logical containers.
 >
@@ -46,11 +46,11 @@ Components inside tend to fill all the space of the region.
 public BorderLayout(int hgap, int vgap)
 ```
 
-### GridLayout
-### GridBagLayout
+### GridLayout TODO
+### GridBagLayout TODO
 Unlike BorderLayout, the GridBagLayout sizes components to their preferred sizes rather than trying to fill up space.
 
-### CardLayout
+### CardLayout TODO
 
 ## Principles of Designing UI
 - Functional based form. The appearance of an object should reflect or allude to its purpose. (Eg: A disabled button should be grayed out and flat)
@@ -79,3 +79,36 @@ Classes can be mapped to database objects through annotations. Frequentely this 
 
 It is not strictly 1 to 1. A java entity can be mapped to a set of columns for more than one table.
 
+### Steps to register a java entity with the ORM
+
+1. Import the persistence API
+```java
+import javax.persistence.*;
+```
+2. Create an entity manager factory
+```java
+EntityManagerFactory mangerFactory = new EntityManagerFactory("db_name");
+```
+3. Obtain the entity manager
+```java
+EntityManager entityManager = managerFactory.createEntityManager();
+```
+4. Initialize the entity manager
+```java
+entityManager.getTransaction().begin();
+```
+5. Provide the new data through your java entity
+```java
+Student student1 = new Student();
+student1.setId(1);
+student1.setName("John");
+```
+6. Persist the object
+```java
+entittyManager.persist(student1);
+```
+7. Close up the transaction and release the factory resources
+```java
+entityManager.close();
+managerFactory.close();
+```
