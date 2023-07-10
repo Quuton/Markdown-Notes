@@ -26,12 +26,20 @@ Components can have a preferred size, taking available space.
 If there are too many componenets and too little space, the components can be clipped and you wont see all of it.
 
 A Flowlayout can prefer to align things, simply pass this in the constructor.
+
+
+
 ![Alt text](images/flowlayoutalignmentt.png)
+
+By default, the horizontal and vertical gap is **5 pixels**, unless specified also in the constructor.
+
+**Constructor summary**
+
 ```java
-public FlowLayout(int alignment, int hgap, int vgap)
+FlowLayout(int alignment, int hgap, int vgap)
 ```
 
-### BorderLayout TODO
+### BorderLayout
 The default for a top-level JWindow or JFrame.
 > A JFrame or JWindow is a container that provides a window interface to interact with. JPanels on the other hand are merely logical containers.
 >
@@ -42,15 +50,115 @@ Components can be added to any of those regions, unused space from other regions
 
 Components inside tend to fill all the space of the region.
 
+You can add multiple components to a single region, however only the latest one will be actually shown.
+
+Using `add()` requires a constraint for the region defined in the BorderLayout Class.
 ```java
-public BorderLayout(int hgap, int vgap)
+myBorderLayout.add(component, BorderLayout.SOUTH);
+```
+**Constructor summary**
+
+```java
+BorderLayout(int hgap, int vgap)
 ```
 
-### GridLayout TODO
-### GridBagLayout TODO
-Unlike BorderLayout, the GridBagLayout sizes components to their preferred sizes rather than trying to fill up space.
+### GridLayout
+A layout that puts objects into rows and columns, each cell having equal size.
 
-### CardLayout TODO
+Using `add()` will add the component from left to right, and top to bottom cells. There is no feature to put in a specific cell.
+
+You can specify the grid dimension in the constructor.
+
+Setting 0 for a row or column will allow the layout to grow in that direction with no bound. However
+Specifying 0 for both rows and columns will throw a `IllegalArgumentException`.
+
+
+**Constructor summary**
+```java
+GridLayout(int rows, int cols, int hgap, int vgap)
+```
+### GridBagLayout
+Probably the most versatile layout you should be using.
+
+Elements are arranged in a grid similar to the `GridLayout`. But elements can have different spans of cells.
+
+Additionally unlike `BorderLayout` or `GridLayout`, the GridBagLayout sizes components to their preferred sizes rather than trying to fill up all space in the region.
+
+The properties of the widget are defined with a `GridBagConstraints` object. 
+
+**Constructor Summary**
+```java
+GridbagLayout()
+```
+#### Adjusting widget properties with gridbag constraints
+This is probably one downside of the gridbag layout, its tedious.
+
+First you need a grid bag constraints object.
+
+**Constructor Summary**
+```java
+GridBagConstraints(int gridx,
+                          int gridy,
+                          int gridwidth,
+                          int gridheight,
+                          double weightx,
+                          double weighty,
+                          int anchor,
+                          int fill,
+                          Insets insets,
+                          int ipadx,
+                          int ipady)
+```
+This constructor is tedious, you can also provide nothing and configure each parameter manually.
+```java
+GridBagConstraints()
+```
+
+##### Parameters to configure
+- gridx, The position on the grid horizontally.
+- gridy, The position on the vertically.
+- gridwidth, how many cells the component wil ltake horizontally.
+- gridheight, how many cells the component will take vertically.
+- weightx, how much extra space it can get from empty spaces horizontally.
+- weighty, how much extra space it can get from empty spaces vertically.
+- anchor, what side the component should prefer to stay at.
+- fill, How a component should take up textra space in its cell, be default it is `GridBagConstraints.NONE`.
+- insets, Specifies external padding.
+- ipadx, Specifies internal padding horizontally.
+- ipady, Specifies internal padding vertically.
+
+**Insets constructor Summary**
+```java
+Insets(int top, int left, int bottom, int right)
+```
+> Regarding weightx and weighty. A component with 0 weight will simply stay in its own cell and not take up any more grid boxes. A component by default has a weight of 1, it will take up any remaining free space from other cells.
+>
+> 
+### CardLayout
+A layout capable of switching components. 
+
+With CardLayout, there is no space between components because only one component is visible at a time. The gaps can be thought of as Insets instead.
+
+When adding a Layout to the `CardLayout`, the `add()` functions needs another parameter.
+you need to provide the jpanel as usual, and you ned to provide a name in `String`.
+```java
+cardLayout.add(component, name)
+```
+
+##### Common methods in CardLayout
+- `next(Container parent)`, flip to the next card
+- `previous(Container parent)`, flip to the previous card
+- `first(Container parent)`, flip to the first card
+- `last(Container parent)`, flip to the last added card
+- `show(Container parent, String name)`, flip to a specific card using the name
+
+
+
+**Constructor Summary**
+```java
+CardLayout (int hgap, int vgap)
+```
+
 
 ## Principles of Designing UI
 - Functional based form. The appearance of an object should reflect or allude to its purpose. (Eg: A disabled button should be grayed out and flat)
